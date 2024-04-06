@@ -1,3 +1,4 @@
+import quran from 'src/packages/quran-pack';
 import { Button } from 'src/packages/ui/button';
 import { cn } from 'src/packages/utils/cn';
 

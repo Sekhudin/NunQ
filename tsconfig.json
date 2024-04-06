@@ -23,6 +23,6 @@
       "types/*": ["./src/types/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "node_modules/quran-pack/dist/surah/source/*"],
   "exclude": ["node_modules"]
 }
