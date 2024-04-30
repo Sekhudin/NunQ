@@ -1,0 +1,7 @@
+export enum STORE_NAME {
+  QURAN_SEARCHES = 'QURAN_SEARCHES',
+}
+
+export enum MAX {
+  QURAN_SEARCHES_RECENTS = 3,
+}

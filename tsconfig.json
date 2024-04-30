@@ -18,11 +18,16 @@
       }
     ],
     "paths": {
-      "src/*": ["./src/*"],
+      "public/*": ["./public/*"],
       "components/*": ["./src/components/*"],
+      "configs/*": ["./src/configs/*"],
+      "modules/*": ["./src/modules/*"],
+      "packages/*": ["./src/packages/*"],
+      "stores/*": ["./src/stores/*"],
+      "styles/*": ["./src/styles/*"],
       "types/*": ["./src/types/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "node_modules/quran-pack/dist/surah/source/*"],
-  "exclude": ["node_modules"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "exclude": ["node_modules", "dist", ".next"]
 }

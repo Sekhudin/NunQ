@@ -1,7 +1,7 @@
 import type { Metadata, ResolvingMetadata } from 'next';
-import type { NextPageProps } from 'src/types/global';
+import type { NextPageProps } from 'types/global';
 
-type ICallbackGenerateMetadata<T> = (
+type ICallbackGenerateMetadata<T extends string> = (
   props: NextPageProps<T>,
   parent: ResolvingMetadata
 ) => Promise<Metadata>;
@@ -10,6 +10,6 @@ export function withMetadata(metadata: Metadata): Metadata {
   return metadata;
 }
 
-export function withGenerateMetadata<T>(cb: ICallbackGenerateMetadata<T>) {
+export function withGenerateMetadata<T extends string>(cb: ICallbackGenerateMetadata<T>) {
   return (props: NextPageProps<T>, parent: ResolvingMetadata) => cb(props, parent);
 }

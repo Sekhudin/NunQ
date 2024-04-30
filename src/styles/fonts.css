@@ -1,0 +1,8 @@
+@font-face {
+  font-family: 'surah-name';
+  src: url('/surah-name.ttf') format('ttf');
+}
+
+.font-surah {
+  font-family: 'surah-name';
+}

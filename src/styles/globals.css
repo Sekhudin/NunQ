@@ -1,3 +1,5 @@
+@import url('./fonts.css');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -53,7 +55,17 @@
   * {
     @apply border-border;
   }
+
   body {
-    @apply bg-background text-foreground;
+    @apply bg-background text-zinc-800 dark:text-zinc-400;
+  }
+
+  main {
+    @apply bg-zinc-50 dark:bg-zinc-900;
+  }
+
+  div[role='dialog']:focus-visible,
+  div[role='dialog']:focus-visible:is(.dark) {
+    @apply outline-0;
   }
 }

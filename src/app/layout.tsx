@@ -1,6 +1,6 @@
-import { withMetadata } from 'src/packages/utils/metadata';
-import RootLayout from 'src/packages/components/layouts/root';
-import 'src/styles/globals.css';
+import RootLayout from 'packages/components/layouts/root.layout';
+import { withMetadata } from 'packages/utils/metadata';
+import 'styles/globals.css';
 
 export const metadata = withMetadata({
   title: 'Create Next App',
