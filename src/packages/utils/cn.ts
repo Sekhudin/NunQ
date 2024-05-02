@@ -3,7 +3,7 @@ import { twMerge } from 'tailwind-merge';
 export type { Props, Children, WithChildren } from 'types/global';
 export type {
   WithHooks,
-  WithStore,
+  WithStores,
   Dependencies,
   ComponentDependencies,
 } from 'types/dependencies';

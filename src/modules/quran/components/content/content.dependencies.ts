@@ -7,13 +7,13 @@ import useQuranSearchesStore from 'stores/quran-searches.store';
 import type {
   Props,
   WithHooks,
-  WithStore,
+  WithStores,
   Dependencies,
   ComponentDependencies,
 } from 'packages/utils/cn';
 
 export const headerDependencies: Props<
-  WithHooks<'useTheme' | 'useMounted'> & WithStore<'useQuranSearchesStore'>
+  WithHooks<'useTheme' | 'useMounted'> & WithStores<'useQuranSearchesStore'>
 > = {
   hooks: {
     useTheme,

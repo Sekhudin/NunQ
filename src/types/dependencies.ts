@@ -36,7 +36,7 @@ type Stores = {
   useQuranSettingsStore: typeof useQuranSettingsStore;
 };
 
-type WithStore<T extends keyof Stores> = {
+type WithStores<T extends keyof Stores> = {
   stores: {
     [P in T]: Stores[P];
   };
@@ -56,4 +56,4 @@ type ComponentDependencies<T extends (...args: any) => any> = {
   hooks: Parameters<T>[0][HooksDepsKey];
 };
 
-export type { WithStore, WithHooks, Dependencies, ComponentDependencies };
+export type { WithStores, WithHooks, Dependencies, ComponentDependencies };

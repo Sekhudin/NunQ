@@ -16,11 +16,11 @@ import { RatingOffIcon, RatingOnIcon, RemoveIcon } from 'packages/ui/icons';
 import { Dialog, DialogContent } from 'packages/ui/dialog';
 import { Separator } from 'packages/ui/separator';
 import { Button } from 'packages/ui/button';
-import { cn, Props, WithStore, WithHooks } from 'packages/utils/cn';
+import { cn, Props, WithStores, WithHooks } from 'packages/utils/cn';
 import useSearchCommandStore from './search.command.store';
 
 export type SearchCommandProps = Props<
-  WithStore<'useQuranSearchesStore'> & WithHooks<'useMounted'>
+  WithStores<'useQuranSearchesStore'> & WithHooks<'useMounted'>
 >;
 
 const FileIcon = PlainIconSM(File);

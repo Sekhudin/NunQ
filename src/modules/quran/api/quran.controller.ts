@@ -14,7 +14,7 @@ class ApiQuranController extends BaseController {
     }
   };
 
-  public GET_Surah: ApiHandler<'surah_number'> = async (req, { params }) => {
+  public GET_SurahByNumber: ApiHandler<'surah_number'> = async (req, { params }) => {
     try {
       const start = this.searchParam(req, 'start', 1);
       const limit = this.searchParam(req, 'limit', 10);
