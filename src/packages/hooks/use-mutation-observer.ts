@@ -1,6 +1,6 @@
 import React from 'react';
 
-export const useMutationObserver = (
+const useMutationObserver = (
   ref: React.MutableRefObject<HTMLElement | null>,
   callback: MutationCallback,
   options = {
@@ -18,3 +18,5 @@ export const useMutationObserver = (
     }
   }, [ref, callback, options]);
 };
+
+export default useMutationObserver;

@@ -4,18 +4,21 @@ import type { StateCreator } from 'types/store';
 import service, { type SurahList } from 'modules/quran/service/quran.service';
 
 interface State {
-  open: boolean;
-  setOpen: (open: boolean) => void;
-  setOpenOnClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  surahMode: boolean;
   links: AvailableLink[];
   surahList: SurahList;
+  open: boolean;
+  setOpen: (open: boolean) => void;
   search: string;
   setSearch: (value: string) => void;
-  surahMode: boolean;
-  onSelect: (cb: (href: string) => void) => (href: string) => void;
+  triggerCommandOnClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
+  commandItemOnSelect: (cb: (href: string) => void) => (href: string) => void;
 }
 
 const stateCreator: StateCreator<State> = (set) => ({
+  surahMode: false,
+  links: availableLinks,
+  surahList: service.surahList,
   open: false,
   setOpen: (open) => {
     set((state) => {
@@ -24,15 +27,6 @@ const stateCreator: StateCreator<State> = (set) => ({
       state.surahMode = false;
     });
   },
-  setOpenOnClick: (e) => {
-    set((state) => {
-      state.open = !state.open;
-      state.search = '';
-      state.surahMode = false;
-    });
-  },
-  links: availableLinks,
-  surahList: service.surahList(),
   search: '',
   setSearch: (value) => {
     set((state) => {
@@ -40,8 +34,14 @@ const stateCreator: StateCreator<State> = (set) => ({
       state.surahMode = value.startsWith('@');
     });
   },
-  surahMode: false,
-  onSelect: (callback) => (href) => {
+  triggerCommandOnClick: (e) => {
+    set((state) => {
+      state.open = !state.open;
+      state.search = '';
+      state.surahMode = false;
+    });
+  },
+  commandItemOnSelect: (callback) => (href) => {
     set((state) => {
       state.open = false;
       state.search = '';
@@ -51,5 +51,5 @@ const stateCreator: StateCreator<State> = (set) => ({
   },
 });
 
-const useSearchCommandState = create<State>()(immer(stateCreator));
-export default useSearchCommandState;
+const useSearchCommandStore = create<State>()(immer(stateCreator));
+export default useSearchCommandStore;

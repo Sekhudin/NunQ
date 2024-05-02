@@ -16,24 +16,26 @@ import { RatingOffIcon, RatingOnIcon, RemoveIcon } from 'packages/ui/icons';
 import { Dialog, DialogContent } from 'packages/ui/dialog';
 import { Separator } from 'packages/ui/separator';
 import { Button } from 'packages/ui/button';
-import { cn, PropsWithClassName } from 'packages/utils/cn';
-import useMounted from 'packages/hooks/use-mounted';
-import useQuranSearchesStore from 'stores/use-quran-searches.store';
-import useSearchCommandState from './search.command.state';
+import { cn, Props, WithStore, WithHooks } from 'packages/utils/cn';
+import useSearchCommandStore from './search.command.store';
+
+export type SearchCommandProps = Props<
+  WithStore<'useQuranSearchesStore'> & WithHooks<'useMounted'>
+>;
 
 const FileIcon = PlainIconSM(File);
 const FileHeartIcon = PlainIconSM(FileHeart);
 const SearchIcon = RoundedIconMD(Search);
 const AtSignIcon = CommandIconSM(AtSign);
-const SearchCommand = ({ className }: PropsWithClassName) => {
+const SearchCommand = ({ className, stores, hooks }: SearchCommandProps) => {
   const router = useRouter();
-  const state = useSearchCommandState((state) => state);
-  const action = useSearchCommandState((action) => action);
+  const state = useSearchCommandStore((state) => state);
+  const action = useSearchCommandStore((action) => action);
 
-  const searchesState = useQuranSearchesStore((state) => state);
-  const searchesAction = useQuranSearchesStore((action) => action);
+  const searchesState = stores.useQuranSearchesStore((state) => state);
+  const searchesAction = stores.useQuranSearchesStore((action) => action);
 
-  useMounted(() => {
+  hooks.useMounted(() => {
     const keyDownHandler = (e: KeyboardEvent) => {
       if (e.key === '/' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();
@@ -52,7 +54,7 @@ const SearchCommand = ({ className }: PropsWithClassName) => {
         variant="outline-icon"
         size="icon-sm"
         aria-label="toggle dark-theme"
-        onClick={action.setOpenOnClick}>
+        onClick={action.triggerCommandOnClick}>
         <SearchIcon />
       </Button>
 
@@ -79,7 +81,7 @@ const SearchCommand = ({ className }: PropsWithClassName) => {
                         className="w-full"
                         value={recent.href}
                         keywords={recent.keywords}
-                        onSelect={action.onSelect((href) => {
+                        onSelect={action.commandItemOnSelect((href) => {
                           router.push(href);
                         })}>
                         <FileIcon />
@@ -102,7 +104,7 @@ const SearchCommand = ({ className }: PropsWithClassName) => {
                         className="w-full"
                         value={favorite.href}
                         keywords={favorite.keywords}
-                        onSelect={action.onSelect((href) => {
+                        onSelect={action.commandItemOnSelect((href) => {
                           router.push(href);
                         })}>
                         <FileHeartIcon />
@@ -129,7 +131,7 @@ const SearchCommand = ({ className }: PropsWithClassName) => {
                         key={key}
                         value={link.href}
                         keywords={link.keywords}
-                        onSelect={action.onSelect((href) => {
+                        onSelect={action.commandItemOnSelect((href) => {
                           router.push(href);
                         })}>
                         <FileIcon />
@@ -150,7 +152,7 @@ const SearchCommand = ({ className }: PropsWithClassName) => {
                         keywords={[`@${surah.name_id}`]}
                         onSelect={searchesAction.addSurahToRecents(
                           surah,
-                          action.onSelect(router.push)
+                          action.commandItemOnSelect(router.push)
                         )}>
                         <FileIcon />
                         <span>{surah.name_id}</span>

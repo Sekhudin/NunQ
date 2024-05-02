@@ -1,8 +1,11 @@
 import type { NextResponse } from 'next/server';
 
-export type PropsWithChildren<P = unknown> = React.PropsWithChildren<P & { className?: string }>;
-export type PropsWithClassName<P = unknown> = P & { className?: string };
+export type Props<P = unknown> = P & { className?: string };
+
 export type Children = React.ReactNode;
+
+export type WithChildren = { children: React.ReactNode };
+
 export type NextLayoutProps<T extends string | null = null> = T extends string
   ? Readonly<Record<'children' | T, Children>>
   : Readonly<Record<'children', Children>>;

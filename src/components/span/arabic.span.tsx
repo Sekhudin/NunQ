@@ -1,6 +1,6 @@
 import React from 'react';
 import { cn } from 'packages/utils/cn';
-import useQuranFontStore from 'stores/use-quran-settings.store';
+import useQuranFontStore from 'stores/quran-settings.store';
 
 const ArabicSpan = React.forwardRef<HTMLSpanElement, React.HTMLAttributes<HTMLSpanElement>>(
   ({ className, ...props }, ref) => {

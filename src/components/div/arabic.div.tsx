@@ -1,6 +1,6 @@
 import React from 'react';
 import { cn } from 'packages/utils/cn';
-import useQuranSettingsStore from 'stores/use-quran-settings.store';
+import useQuranSettingsStore from 'stores/quran-settings.store';
 
 const ArabicDiv = React.forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => {

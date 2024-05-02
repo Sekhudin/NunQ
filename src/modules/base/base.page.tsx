@@ -9,16 +9,14 @@ import {
   CommandList,
   CommandGroup,
   CommandItem,
-  CommandShortcut,
-  CommandSeparator,
 } from 'packages/ui/command';
 import { Dialog, DialogContent } from 'packages/ui/dialog';
 import { Button } from 'packages/ui/button';
 import useMounted from 'packages/hooks/use-mounted';
-import { cn, PropsWithClassName } from 'packages/utils/cn';
+import { cn, Props } from 'packages/utils/cn';
 
 const SearchIcon = RoundedIconMD(Search);
-const SearchCommand = ({ className }: PropsWithClassName) => {
+const SearchCommand = ({ className }: Props) => {
   const [open, setOpen] = React.useState(false);
 
   const triggerHandler = () => {

@@ -1,3 +1,4 @@
+"use client"
 import { HeaderMain, ContentMain, FooterMain } from 'components/hoc/container.hoc';
 import { ScrollArea } from 'packages/ui/scroll-area';
 import type { NextLayoutProps } from 'types/global';

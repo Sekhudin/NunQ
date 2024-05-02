@@ -6,7 +6,7 @@ import ArabicDiv from 'components/div/arabic.div';
 import { Button } from 'packages/ui/button';
 import { cn } from 'packages/utils/cn';
 import * as font from 'packages/font/arabic.font';
-import useFontStore from 'stores/use-quran-settings.store';
+import useFontStore from 'stores/quran-settings.store';
 
 const QuranPage = () => {
   const [surahNumber, setSurahNumber] = React.useState(110);

@@ -1,15 +1,14 @@
 'use client';
 import React from 'react';
-import { useTheme } from 'next-themes';
 import { SunIcon, MoonStarIcon } from 'lucide-react';
 import { RoundedIconMD } from 'components/hoc/icon.hoc';
 import { Button } from 'packages/ui/button';
-import { cn, PropsWithClassName } from 'packages/utils/cn';
+import { cn, Props, WithHooks } from 'packages/utils/cn';
 
 const LightIcon = RoundedIconMD(SunIcon);
 const DarkIcon = RoundedIconMD(MoonStarIcon);
-const ThemeToggle = ({ className, ...props }: PropsWithClassName) => {
-  const { setTheme, theme } = useTheme();
+const ThemeToggle = ({ className, hooks, ...props }: Props<WithHooks<'useTheme'>>) => {
+  const { setTheme, theme } = hooks.useTheme();
 
   const onClickHandler = () => {
     if (!theme) return;

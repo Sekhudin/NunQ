@@ -3,11 +3,9 @@ import * as quranValidation from 'packages/quran-pack/validation';
 import HttpError from 'packages/server/base/http-error';
 
 class ApiQuranService {
-  public allSurah() {
-    return Quran.all();
-  }
+  public surahList = Quran.surahList;
 
-  public surah(number: string, start: string, limit: string) {
+  public surahByNumber(number: string, start: string, limit: string) {
     try {
       const surahNumber = quranValidation.surahNumber().parse(number);
       const { surah, info } = Quran.init(surahNumber).details();
@@ -21,4 +19,5 @@ class ApiQuranService {
 }
 
 const service = new ApiQuranService();
+export type * from 'packages/quran-pack/quran.types';
 export default service;
