@@ -1,5 +1,4 @@
-"use client"
-import { HeaderMain, ContentMain, FooterMain } from 'components/hoc/container.hoc';
+import { HeaderMain, ContentMain, FooterMain } from 'components/HOCs/container.hoc';
 import { ScrollArea } from 'packages/ui/scroll-area';
 import type { NextLayoutProps } from 'types/global';
 import QuranHeaderContent from './components/content/header.content';
@@ -7,17 +6,19 @@ import QuranFooterContent from './components/content/footer.content';
 
 const QuranLayout = ({ children }: NextLayoutProps) => {
   const HeaderContent = HeaderMain(<QuranHeaderContent />);
-  const FooterContent = FooterMain(<QuranFooterContent />);
   const MainContent = ContentMain(children);
+  const FooterContent = FooterMain(<QuranFooterContent />);
 
   return (
     <ScrollArea className="h-dvh" type="hover">
       <header>
-        <HeaderContent className="flex" />
+        <HeaderContent />
       </header>
+
       <main>
-        <MainContent className="min-h-screen" />
+        <MainContent />
       </main>
+
       <footer>
         <FooterContent />
       </footer>

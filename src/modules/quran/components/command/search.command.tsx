@@ -1,8 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { Search, AtSign, File, FileHeart } from 'lucide-react';
-import NextLink from 'components/next-link';
-import { PlainIconSM, RoundedIconMD, CommandIconSM } from 'components/hoc/icon.hoc';
+import { PlainIconSM, RoundedIconMD, CommandIconSM } from 'components/HOCs/icon.hoc';
 import {
   Command,
   CommandInput,
@@ -12,30 +11,30 @@ import {
   CommandItem,
   CommandSeparator,
 } from 'packages/ui/command';
+import { NextLink } from 'packages/ui/next-link';
 import { RatingOffIcon, RatingOnIcon, RemoveIcon } from 'packages/ui/icons';
 import { Dialog, DialogContent } from 'packages/ui/dialog';
 import { Separator } from 'packages/ui/separator';
 import { Button } from 'packages/ui/button';
-import { cn, Props, WithStores, WithHooks } from 'packages/utils/cn';
+import { cn, Props } from 'packages/utils/cn';
+import useMounted from 'packages/hooks/use-mounted';
+import useQuranSearchesStore from 'stores/quran-searches.store';
 import useSearchCommandStore from './search.command.store';
-
-export type SearchCommandProps = Props<
-  WithStores<'useQuranSearchesStore'> & WithHooks<'useMounted'>
->;
 
 const FileIcon = PlainIconSM(File);
 const FileHeartIcon = PlainIconSM(FileHeart);
 const SearchIcon = RoundedIconMD(Search);
 const AtSignIcon = CommandIconSM(AtSign);
-const SearchCommand = ({ className, stores, hooks }: SearchCommandProps) => {
+
+const SearchCommand = ({ className }: Props) => {
   const router = useRouter();
   const state = useSearchCommandStore((state) => state);
   const action = useSearchCommandStore((action) => action);
 
-  const searchesState = stores.useQuranSearchesStore((state) => state);
-  const searchesAction = stores.useQuranSearchesStore((action) => action);
+  const searchesState = useQuranSearchesStore((state) => state);
+  const searchesAction = useQuranSearchesStore((action) => action);
 
-  hooks.useMounted(() => {
+  useMounted(() => {
     const keyDownHandler = (e: KeyboardEvent) => {
       if (e.key === '/' && (e.metaKey || e.ctrlKey)) {
         e.preventDefault();

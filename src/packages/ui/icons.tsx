@@ -17,7 +17,7 @@ import {
   RatingOffIconSM,
   RatingOnIconSM,
   RemoveIconSM,
-} from 'components/hoc/icon.hoc';
+} from 'components/HOCs/icon.hoc';
 
 export const CheckIcon = RoundedPlainIconSM(Check);
 export const ChevronRightIcon = RoundedPlainIconSM(ChevronRight);

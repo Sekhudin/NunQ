@@ -29,5 +29,5 @@ const stateCreator: QuranSettings.StateCreator = (set) => ({
   },
 });
 
-const useFontStore = create<QuranSettings.State>()(immer(stateCreator));
-export default useFontStore;
+const useQuranSettingsStore = create<QuranSettings.State>()(immer(stateCreator));
+export default useQuranSettingsStore;

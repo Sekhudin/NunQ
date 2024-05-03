@@ -1,4 +1,4 @@
-import MainAnchor from "components/anchor/main.anchor";
+import MainAnchor from "components/anchors/main.anchor";
 
 const CommonHeader = () => {
   return (

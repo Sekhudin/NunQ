@@ -5,6 +5,7 @@ export type Props<P = unknown> = P & { className?: string };
 export type Children = React.ReactNode;
 
 export type WithChildren = { children: React.ReactNode };
+export type OmitChildren<T extends Record<string, any>> = Omit<T, 'children'>;
 
 export type NextLayoutProps<T extends string | null = null> = T extends string
   ? Readonly<Record<'children' | T, Children>>
