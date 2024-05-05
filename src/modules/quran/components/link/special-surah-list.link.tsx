@@ -13,7 +13,7 @@ const SpecialSurahListLink = ({ className }: Props) => {
       )}>
       {service.specialSurahList.map((surah, key) => (
         <NextLinkButton
-          className={cn(`rounded-full duration-500 delay-100`)}
+          className={cn(`px-4 py-1 rounded-full duration-500 delay-100`)}
           key={key}
           variant="secondary"
           size="fit"
