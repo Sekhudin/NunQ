@@ -1,11 +1,12 @@
 import React from 'react';
-import { cn, Children } from 'packages/utils/cn';
+import { cn, JSXComponent } from 'packages/utils/cn';
+export { Childs } from './utils.hoc';
 
 const ContainerHOC = (baseClassName: string) => {
-  const HOC = (children: Children) => {
+  const HOC = (Content: JSXComponent) => {
     const Component = ({ className, ...props }: React.HTMLAttributes<HTMLDivElement>) => (
       <div className={cn(``, baseClassName, className)} {...props}>
-        {children}
+        <Content />
       </div>
     );
     return Component;

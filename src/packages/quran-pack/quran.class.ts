@@ -1,9 +1,13 @@
 import * as QuranPack from 'quran-pack';
-import Surah from './surah-extended.class';
+import Surah, { specialSurah } from './surah-extended.class';
 import type { SurahNumber, SurahNameID } from './quran.types';
 
 class Quran {
   static surahList = QuranPack.surahList;
+
+  static specialSurahList = QuranPack.surahList.filter((surah) =>
+    specialSurah.includes(surah.name_id as SurahNameID)
+  );
 
   static init = (value: SurahNumber | SurahNameID) => {
     return new Surah(value);

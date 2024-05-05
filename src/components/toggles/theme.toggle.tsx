@@ -22,9 +22,9 @@ const ThemeToggle = ({ className, ...props }: Props<React.ComponentProps<typeof 
 
   return (
     <Button
-      className={cn(`rounded-full`, className)}
-      variant="outline-icon"
-      size="icon-sm"
+      className={cn(`hover:border-none dark:hover:bg-primary/20 rounded-full group`, className)}
+      variant="outline"
+      size="icon"
       aria-label="toggle dark-theme"
       onClick={onClickHandler}
       {...props}>

@@ -1,10 +1,13 @@
 import Navigation from './components/navigation/quran.navigation';
+import SpecialSurahListLink from './components/link/special-surah-list.link';
+import SurahListLink from './components/link/surah-list.link';
 
 const QuranPage = () => {
   return (
     <>
       <Navigation />
-      <div>Quran Page</div>
+      <SpecialSurahListLink />
+      <SurahListLink />
     </>
   );
 };

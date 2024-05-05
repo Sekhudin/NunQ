@@ -2,7 +2,11 @@ import Quran from 'packages/quran-pack';
 
 class QuranService {
   public surahList = Quran.surahList;
+
+  public specialSurahList = Quran.specialSurahList;
+
   public findSurahByNameID = Quran.findSurahByNameID;
+
   public findSurahByNumber = Quran.findSurahByNumber;
 }
 

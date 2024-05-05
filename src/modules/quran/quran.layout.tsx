@@ -1,16 +1,16 @@
-import { HeaderMain, ContentMain, FooterMain } from 'components/HOCs/container.hoc';
-import { ScrollArea } from 'packages/ui/scroll-area';
+import { HeaderMain, ContentMain, FooterMain, Childs } from 'components/HOCs/container.hoc';
+import { WithScrollArea } from 'components/HOCs/layout-scroll.hoc';
 import type { NextLayoutProps } from 'types/global';
 import QuranHeaderContent from './components/content/header.content';
 import QuranFooterContent from './components/content/footer.content';
 
+const HeaderContent = HeaderMain(QuranHeaderContent);
+const FooterContent = FooterMain(QuranFooterContent);
 const QuranLayout = ({ children }: NextLayoutProps) => {
-  const HeaderContent = HeaderMain(<QuranHeaderContent />);
-  const MainContent = ContentMain(children);
-  const FooterContent = FooterMain(<QuranFooterContent />);
+  const MainContent = ContentMain(Childs(children));
 
   return (
-    <ScrollArea className="h-dvh" type="hover">
+    <>
       <header>
         <HeaderContent />
       </header>
@@ -22,8 +22,9 @@ const QuranLayout = ({ children }: NextLayoutProps) => {
       <footer>
         <FooterContent />
       </footer>
-    </ScrollArea>
+    </>
   );
 };
 
-export default QuranLayout;
+const Layout = WithScrollArea(QuranLayout);
+export default Layout;

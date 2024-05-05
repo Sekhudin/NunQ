@@ -1,6 +1,11 @@
 import type { NextResponse } from 'next/server';
 
 export type Props<P = unknown> = P & { className?: string };
+export type PropsFrom<
+  T extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>,
+  P extends Record<string, any> = {}
+> = React.ComponentProps<T> & P;
+export type JSXComponent<P = unknown> = (p: Props<P>) => React.JSX.Element;
 
 export type Children = React.ReactNode;
 

@@ -22,4 +22,14 @@ class SurahExtended extends QuranPack.Surah {
   };
 }
 
+export const specialSurah: SurahNameID[] = [
+  'Yasin',
+  'Al-Kahf',
+  'Yusuf',
+  'Maryam',
+  'Al-Mulk',
+  "Al-Waqi'ah",
+  'Ar-Rahman',
+];
+
 export default SurahExtended;
