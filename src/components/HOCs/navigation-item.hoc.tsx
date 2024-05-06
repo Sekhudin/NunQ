@@ -14,12 +14,7 @@ const NavItemHOC = (baseClassName: string, bgIconClassName?: string) => {
         <span>
           <span className={cn(center, 'relative')}>
             {bgIconClassName && (
-              <span
-                className={cn(
-                  `absolute bg-zinc-300 dark:bg-primary/30 rounded-full`,
-                  bgIconClassName
-                )}
-              />
+              <span className={cn(`absolute bg-primary/50 rounded-full`, bgIconClassName)} />
             )}
             <IconComp />
           </span>

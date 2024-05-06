@@ -58,15 +58,20 @@
     @apply bg-white dark:bg-black;
   }
 
-  header,
-  footer,
-  .bg_background {
-    @apply bg-zinc-50 dark:bg-zinc-950;
-  }
-
   main,
   .bg_main {
     @apply bg-zinc-100 dark:bg-zinc-900;
+  }
+
+  header,
+  footer,
+  .bg_background,
+  .card_content {
+    @apply bg-zinc-50 dark:bg-zinc-950;
+  }
+
+  .card_content {
+    @apply dark:bg-opacity-30 text-zinc-800 dark:text-zinc-400;
   }
 
   .text_content {

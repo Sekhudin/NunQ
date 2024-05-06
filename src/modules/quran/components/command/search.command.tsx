@@ -49,8 +49,8 @@ const SearchCommand = ({ className }: Props) => {
   return (
     <>
       <Button
-        className={cn(`hover:border-none dark:hover:bg-primary/15 rounded-full group`, className)}
-        variant="outline"
+        className={cn(`hover:bg-zinc-100 rounded-full group`, className)}
+        variant="ghost"
         size="icon"
         aria-label="toggle dark-theme"
         onClick={action.triggerCommandOnClick}>

@@ -9,11 +9,7 @@ const MaulidNavItem = NavItem(NavIconItem(PoleIconPNG, 'maulid'), 'Maulid');
 const QuranNavigation = ({ className }: Props) => {
   return (
     <div className="bg_main sticky top-0 pt-4 pb-2">
-      <div
-        className={cn(
-          `bg_background flex items-center justify-around py-1 md:py-2 rounded-xl`,
-          className
-        )}>
+      <div className={cn(`flex items-center justify-around py-1 md:py-2 rounded-xl`, className)}>
         <AlQuranNavItem href="/quran" />
         <YasinTahlilNavItem href="/tahlil" disabled />
         <WiridDoaNavItem href="/doa" disabled />

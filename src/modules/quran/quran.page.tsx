@@ -1,10 +1,12 @@
+import { containerClassName } from 'components/HOCs/container.hoc';
+import { cn } from 'packages/utils/cn';
 import Navigation from './components/navigation/quran.navigation';
 import SpecialSurahListLink from './components/link/special-surah-list.link';
 import SurahListLink from './components/link/surah-list.link';
 
 const QuranPage = () => {
   return (
-    <div className="py-8">
+    <div className={cn(containerClassName, 'py-8')}>
       <Navigation />
       <SpecialSurahListLink />
       <SurahListLink />
