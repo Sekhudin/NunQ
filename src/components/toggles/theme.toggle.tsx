@@ -22,14 +22,14 @@ const ThemeToggle = ({ className, ...props }: Props<React.ComponentProps<typeof 
 
   return (
     <Button
-      className={cn(`hover:bg-zinc-100 rounded-full group`, className)}
-      variant="ghost"
+      className={cn(`rounded-full group`, className)}
+      variant="ghost2"
       size="icon"
       aria-label="toggle dark-theme"
       onClick={onClickHandler}
       {...props}>
       <LightIcon className="dark:hidden" />
-      <DarkIcon className="hidden dark:block" />
+      <DarkIcon className="hidden dark:block dark:stroke-primary" />
     </Button>
   );
 };

@@ -14,12 +14,14 @@ const buttonVariants = cva(
         destructive: `bg-pink-600 dark:bg-pink-700 hover:bg-pink-600/90 dark:hover:bg-pink-700/80
         text-destructive-foreground`,
         secondary: `bg-primary/30 dark:bg-primary/15 hover:bg-primary dark:hover:bg-primary
-        text-primary hover:text-primary-foreground`,
-        outline: `bg_background border border-zinc-300 dark:border-zinc-800
-        hover:bg-zinc-50 dark:hover:bg-zinc-800 hover:text-accent-foreground`,
+        text-primary dark:text-primary-foreground hover:text-primary-foreground`,
+        outline: `border border-zinc-300 dark:border-zinc-800 hover:bg-zinc-50
+        dark:hover:bg-zinc-800 hover:text-accent-foreground`,
         ghost: `hover:bg-primary/30 dark:hover:bg-primary/15 hover:text-primary
-        dark:hover:text-primary`,
+        dark:hover:text-primary-foreground`,
+        ghost2: `hover:bg-zinc-100 dark:hover:bg-zinc-900 hover:text-accent-foreground`,
         link: `text-primary underline-offset-4 hover:underline`,
+        link2: `text-card-foreground hover:text-primary`,
         plain: '',
       },
       size: {

@@ -15,7 +15,8 @@ const IconHOC = (baseClassName: string) => {
   return HOC;
 };
 
-const base = `stroke-zinc-600 dark:stroke-primary group-hover:stroke-primary dark:group-hover:fill-primary/20`;
+const base = `stroke-zinc-600 dark:stroke-primary-foreground group-hover:stroke-primary
+dark:group-hover:fill-primary/20`;
 const RoundedIconXS = IconHOC(`size-4 rounded-full ${base}`);
 const RoundedIconSM = IconHOC(`size-4 sm:size-5 rounded-full ${base}`);
 const RoundedIconMD = IconHOC(`size-6 sm:size-7 rounded-full ${base}`);
