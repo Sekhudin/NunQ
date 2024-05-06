@@ -5,7 +5,7 @@ import type { PageParams } from 'types/global';
 const Page = ({ params }: PageParams<'surah_number'>) => {
   return (
     <>
-      <Navigation />
+      <Navigation surahNumber={1} />
     </>
   );
 };
