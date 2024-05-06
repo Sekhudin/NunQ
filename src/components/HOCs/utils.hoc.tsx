@@ -18,7 +18,10 @@ const Childs = (...childrens: Children[]) => {
   return Content;
 };
 
-const ImageHOC = (baseClassName: string) => {
+const ImageHOC = ({
+  className: baseClassName,
+  ...defaultProps
+}: Partial<PropsFrom<typeof NextImage>>) => {
   const HOC = (asSrc: NextImageSrc, asAlt: NextImageAlt) => {
     const Component = ({
       className,
@@ -26,7 +29,7 @@ const ImageHOC = (baseClassName: string) => {
       alt = asAlt,
       ...props
     }: PropsFrom<typeof NextImage>) => (
-      <NextImage className={cn(baseClassName, className)} src={src} alt={alt} {...props} />
+      <NextImage className={cn(baseClassName, className)} src={src} alt={alt} {...defaultProps} />
     );
     return Component as JSXComponent;
   };

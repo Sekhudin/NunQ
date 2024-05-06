@@ -41,6 +41,10 @@ const NavItemHOC = (baseClassName: string, bgIconClassName?: string) => {
 };
 
 const NavItem = NavItemHOC(`h-fit`, `size-9 md:size-11`);
-const NavIconItem = ImageHOC(`size-8 md:size-10`);
+const NavIconItem = ImageHOC({
+  className: `size-8 md:size-10`,
+  priority: true,
+  loading: 'eager',
+});
 
 export { NavItemHOC, NavItem, NavIconItem };

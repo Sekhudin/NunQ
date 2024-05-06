@@ -9,7 +9,7 @@ const SurahListLink = ({ className }: Props) => {
     <div className={cn(`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4`, className)}>
       {service.surahList.map(({ name_trans_id, number_of_verse, ...surah }, key) => (
         <NextLinkButton
-          className={cn(`bg-background border border-transparent hover:border-primary hover:text-zinc-800
+          className={cn(`bg_background border border-transparent hover:border-primary hover:text-zinc-800
           dark:hover:text-zinc-200 flex justify-between items-center gap-x-4 px-6 py-4 size-auto text-wrap
           text-base rounded-xl duration-500 delay-100 group`)}
           key={key}

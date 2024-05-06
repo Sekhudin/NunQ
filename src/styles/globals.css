@@ -55,23 +55,26 @@
   }
 
   body {
-    @apply bg-background text-zinc-800 dark:text-zinc-400;
+    @apply bg-white dark:bg-black;
   }
 
-  main {
+  header,
+  footer,
+  .bg_background {
+    @apply bg-zinc-50 dark:bg-zinc-950;
+  }
+
+  main,
+  .bg_main {
     @apply bg-zinc-100 dark:bg-zinc-900;
+  }
+
+  .text_content {
+    @apply text-zinc-800 dark:text-zinc-400;
   }
 
   div[role='dialog']:focus-visible,
   div[role='dialog']:focus-visible:is(.dark) {
     @apply outline-0;
-  }
-
-  .text_color_base {
-    @apply text-zinc-800 dark:text-zinc-400;
-  }
-
-  .background_content {
-    @apply bg-zinc-100 dark:bg-zinc-900;
   }
 }

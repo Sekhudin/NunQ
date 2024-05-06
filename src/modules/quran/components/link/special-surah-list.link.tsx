@@ -1,7 +1,7 @@
 import { NextLinkButton } from 'packages/ui/next-link';
 import { cn, Props } from 'packages/utils/cn';
-import service from '../../service/quran.service';
-import helper from '../../service/helper.service';
+import service from 'modules/quran/service/quran.service';
+import helper from 'modules/quran/service/helper.service';
 
 const SpecialSurahListLink = ({ className }: Props) => {
   return (
