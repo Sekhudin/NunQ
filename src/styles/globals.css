@@ -4,48 +4,57 @@
 
 @layer base {
   :root {
+    /* violet */
+    --color-primary: 263.4 70% 50.4%;
+    --color-zinc-800: 240, 3.7%, 15.88%;
+    --color-zinc-200: 240 5.88% 90%;
+
     --background: 0 0% 100%;
-    --foreground: 224 71.4% 4.1%;
+    --foreground: var(--color-zinc-800);
     --card: 0 0% 100%;
-    --card-foreground: 224 71.4% 4.1%;
+    --card-foreground: var(--color-zinc-800);
     --popover: 0 0% 100%;
-    --popover-foreground: 224 71.4% 4.1%;
-    --primary: 262.1 83.3% 57.8%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 220 14.3% 95.9%;
-    --secondary-foreground: 220.9 39.3% 11%;
-    --muted: 220 14.3% 95.9%;
-    --muted-foreground: 220 8.9% 46.1%;
-    --accent: 220 14.3% 95.9%;
-    --accent-foreground: 220.9 39.3% 11%;
+    --popover-foreground: var(--color-zinc-800);
+    --primary: var(--color-primary);
+    --primary-foreground: var(--color-zinc-200);
+    --secondary: 240 4.8% 95.9%;
+
+    --secondary-foreground: 240 5.9% 10%;
+    --muted: 240 4.8% 95.9%;
+    --muted-foreground: 240 3.8% 46.1%;
+    --accent: 240 4.8% 95.9%;
+    --accent-foreground: 240 5.9% 10%;
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 220 13% 91%;
-    --input: 220 13% 91%;
-    --ring: 262.1 83.3% 57.8%;
+    --destructive-foreground: var(--color-zinc-200);
+    --border: 240 5.9% 90%;
+    --input: 240 5.9% 90%;
+    --ring: var(--color-primary);
     --radius: 0.5rem;
   }
 
   .dark {
-    --background: 224 71.4% 4.1%;
-    --foreground: 210 20% 98%;
-    --card: 224 71.4% 4.1%;
-    --card-foreground: 210 20% 98%;
-    --popover: 224 71.4% 4.1%;
-    --popover-foreground: 210 20% 98%;
-    --primary: 263.4 70% 50.4%;
-    --primary-foreground: 210 20% 98%;
-    --secondary: 215 27.9% 16.9%;
-    --secondary-foreground: 210 20% 98%;
-    --muted: 215 27.9% 16.9%;
-    --muted-foreground: 217.9 10.6% 64.9%;
-    --accent: 215 27.9% 16.9%;
-    --accent-foreground: 210 20% 98%;
+    --color-primary: 263.4 70% 50.4%;
+    --color-zinc-200: 240 5.88% 90%;
+
+    --background: 240 10% 3.9%;
+    --foreground: var(--color-zinc-200);
+    --card: 240 10% 3.9%;
+    --card-foreground: var(--color-zinc-200);
+    --popover: 240 10% 3.9%;
+    --popover-foreground: var(--color-zinc-200);
+    --primary: var(--color-primary);
+    --primary-foreground: var(--color-zinc-200);
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: var(--color-zinc-200);
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: var(--color-zinc-200);
     --destructive: 0 62.8% 30.6%;
-    --destructive-foreground: 210 20% 98%;
-    --border: 215 27.9% 16.9%;
-    --input: 215 27.9% 16.9%;
-    --ring: 263.4 70% 50.4%;
+    --destructive-foreground: var(--color-zinc-200);
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: var(--color-primary);
   }
 }
 
@@ -54,28 +63,26 @@
     @apply border-border;
   }
 
-  body {
-    @apply bg-white dark:bg-black;
-  }
-
-  main,
-  .bg_main {
-    @apply bg-zinc-100 dark:bg-zinc-900;
+  body,
+  main {
+    @apply text-zinc-800 dark:text-zinc-200;
   }
 
   header,
-  footer,
-  .bg_background,
-  .card_content {
-    @apply bg-zinc-50 dark:bg-zinc-950;
+  footer {
+    @apply bg-background;
   }
 
-  .card_content {
-    @apply dark:bg-opacity-30 text-zinc-800 dark:text-zinc-400;
+  main {
+    @apply bg-zinc-100 dark:bg-zinc-900;
   }
 
-  .text_content {
-    @apply text-zinc-800 dark:text-zinc-400;
+  .bg_navigation {
+    @apply bg-zinc-100/10 dark:bg-zinc-900/10 backdrop-blur-lg;
+  }
+
+  .bg_card {
+    @apply bg-background dark:bg-background/30;
   }
 
   div[role='dialog']:focus-visible,

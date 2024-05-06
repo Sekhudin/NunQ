@@ -1,5 +1,5 @@
 import * as QuranPack from 'quran-pack';
-import type { SurahNumber, SurahNameID, SurahList } from 'quran-pack/types';
+import type { SurahNumber, SurahNameID, SurahList, SurahCategory } from 'quran-pack/types';
 
 class SurahExtended extends QuranPack.Surah {
   constructor(value: SurahNumber | SurahNameID) {
@@ -25,11 +25,14 @@ class SurahExtended extends QuranPack.Surah {
 export const specialSurah: SurahNameID[] = [
   'Yasin',
   'Al-Kahf',
-  'Yusuf',
-  'Maryam',
-  'Al-Mulk',
+  // 'Yusuf',
+  // 'Maryam',
+  // 'Al-Mulk',
   "Al-Waqi'ah",
   'Ar-Rahman',
 ];
+
+export const makkiyah: SurahCategory = 'Makkiyah';
+export const madaniyah: SurahCategory = 'Madaniyah';
 
 export default SurahExtended;

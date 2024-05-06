@@ -1,5 +1,5 @@
 import * as QuranPack from 'quran-pack';
-import Surah, { specialSurah } from './surah-extended.class';
+import Surah, { specialSurah, madaniyah, makkiyah } from './surah-extended.class';
 import type { SurahNumber, SurahNameID } from './quran.types';
 
 class Quran {
@@ -8,6 +8,10 @@ class Quran {
   static specialSurahList = QuranPack.surahList.filter((surah) =>
     specialSurah.includes(surah.name_id as SurahNameID)
   );
+
+  static surahMakkiyah = QuranPack.surahList.filter((surah) => surah.category === makkiyah);
+
+  static surahMadaniyah = QuranPack.surahList.filter((surah) => surah.category === madaniyah);
 
   static init = (value: SurahNumber | SurahNameID) => {
     return new Surah(value);
