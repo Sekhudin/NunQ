@@ -1,8 +1,9 @@
 import ThemeToggle from 'components/toggles/theme.toggle';
 import MainAnchor from 'components/anchors/main.anchor';
+import { MainHeader } from 'components/HOCs/container.hoc';
 import SearchCommand from 'modules/quran/components/command/search.command';
 
-const QuranHeaderContent = () => {
+const Content = () => {
   return (
     <>
       <div>
@@ -15,4 +16,6 @@ const QuranHeaderContent = () => {
     </>
   );
 };
-export default QuranHeaderContent;
+
+const HeaderContent = MainHeader(Content);
+export default HeaderContent;

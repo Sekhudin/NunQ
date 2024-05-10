@@ -4,7 +4,7 @@ import { amiri } from 'packages/font/arabic.font';
 import service from 'modules/quran/service/quran.service';
 import helper from 'modules/quran/service/helper.service';
 
-const SurahListLink = ({ className }: Props) => {
+const SurahList = ({ className }: Props) => {
   return (
     <ul className={cn(`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4`, className)}>
       {service.surahList.map(({ name_trans_id, number_of_verse, ...surah }, key) => (
@@ -34,4 +34,4 @@ const SurahListLink = ({ className }: Props) => {
   );
 };
 
-export default SurahListLink;
+export default SurahList;

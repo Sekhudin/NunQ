@@ -1,12 +1,13 @@
+import { MainFooter } from 'components/HOCs/container.hoc';
 import * as config from 'configs/env.config';
 
-const QuranFooterContent = () => {
+const Content = () => {
   const date = new Date();
   const year = '@' + date.getFullYear();
 
   return (
     <>
-      <div>Common Footer</div>
+      <div className="invisible">Common Footer</div>
       <div className="flex items-center gap-x-1 text-xs md:text-sm">
         <span>{year}</span>
         <span className="font-semibold">{config.APP_NAME}</span>
@@ -15,4 +16,6 @@ const QuranFooterContent = () => {
     </>
   );
 };
-export default QuranFooterContent;
+
+const FooterContent = MainFooter(Content);
+export default FooterContent;

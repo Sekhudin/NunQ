@@ -3,7 +3,7 @@ import { cn, Props } from 'packages/utils/cn';
 import service from 'modules/quran/service/quran.service';
 import helper from 'modules/quran/service/helper.service';
 
-const SpecialSurahListLink = ({ className }: Props) => {
+const SpecialSurahList = ({ className }: Props) => {
   return (
     <ul
       className={cn(
@@ -26,4 +26,4 @@ const SpecialSurahListLink = ({ className }: Props) => {
   );
 };
 
-export default SpecialSurahListLink;
+export default SpecialSurahList;

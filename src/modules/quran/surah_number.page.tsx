@@ -1,13 +1,20 @@
 import { mainContainerClass } from 'components/HOCs/container.hoc';
 import { cn } from 'packages/utils/cn';
-import Navigation from './components/navigation/quran_surah.navigation';
+import SurahNavigation from './components/semantic/surah.nav';
+import SurahHeadSection from './components/semantic/surah-head.section';
+import AyahSurahSection from './components/semantic/ayah-surah.section';
 import type { PageParams } from 'types/global';
 
 const Page = ({ params }: PageParams<'surah_number'>) => {
   return (
-    <main>
-      <Navigation params={params} />
-      <div className={cn(mainContainerClass)}>conttent</div>
+    <main className="">
+      <SurahNavigation params={params} />
+      <div className="bg-background">
+        <div className={cn(mainContainerClass, 'py-8')}>
+          <SurahHeadSection params={params} />
+          <AyahSurahSection params={params} />
+        </div>
+      </div>
     </main>
   );
 };

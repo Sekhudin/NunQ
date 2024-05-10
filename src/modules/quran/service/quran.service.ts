@@ -11,6 +11,10 @@ class QuranService {
 
   public findSurahByNumber = Quran.findSurahByNumber;
 
+  public isWithBismillah(numeric: string | number) {
+    return !Quran.surahNumberWithOutBismillah.includes(Number(numeric));
+  }
+
   public prevSurah(surahNumber: number) {
     if (surahNumber <= 1) return null;
     surahNumber = surahNumber - 1;
@@ -23,7 +27,7 @@ class QuranService {
     return this.findSurahByNumber(surahNumber);
   }
 
-  public prevNextSurah(numeric: string) {
+  public prevNextSurah(numeric: string | number) {
     const surahNumber: number = Number(numeric);
     return [this.prevSurah(surahNumber), this.nextSurah(surahNumber)];
   }

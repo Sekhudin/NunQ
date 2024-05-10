@@ -1,6 +1,7 @@
 import { ArrowLeft, Settings, ChevronRight, ChevronLeft } from 'lucide-react';
 import { RoundedIconSM } from 'components/HOCs/icon.hoc';
 import { containerClass } from 'components/HOCs/container.hoc';
+import { Separator } from 'packages/ui/separator';
 import { NextLinkButton } from 'packages/ui/next-link';
 import { Button } from 'packages/ui/button';
 import SettingsPopover from 'modules/quran/components/popover/settings.popover';
@@ -12,15 +13,16 @@ const ArrowLeftIcon = RoundedIconSM(ArrowLeft);
 const SettingsIcon = RoundedIconSM(Settings);
 const ChevronRightIcon = RoundedIconSM(ChevronRight);
 const ChevronLeftIcon = RoundedIconSM(ChevronLeft);
-const QuranNavigation = ({ className, params }: Props<WithParams<'surah_number'>>) => {
+const SurahNavigation = ({ className, params }: Props<WithParams<'surah_number'>>) => {
   return (
-    <nav className={cn(`bg_navigation sticky top-0 py-8`, className)}>
-      <ul className={cn(containerClass, `flex justify-between items-center`)}>
+    <nav className={cn(`bg_navigation sticky top-0 min-h-3`, className)}>
+      <Separator />
+      <ul className={cn(containerClass, `flex justify-between items-center py-3 md:py-8`)}>
         <li>
           <NextLinkButton
-            className="items-center gap-x-2 py-1 group"
+            className="items-center gap-x-2 group"
             variant="ghost2"
-            size="none"
+            size="fit"
             href={'/quran'}>
             <ArrowLeftIcon className="dark:stroke-primary" />
             <span className="hidden md:block">Daftar Surah</span>
@@ -54,7 +56,7 @@ const QuranNavigation = ({ className, params }: Props<WithParams<'surah_number'>
                 <li key={key}>
                   <NextLinkButton
                     className={cn(
-                      `size-full flex justify-between items-center gap-x-2 group rounded-none`,
+                      `bg-background size-full flex justify-between items-center gap-x-2 group rounded-none`,
                       key === 0 ? 'flex-row-reverse rounded-l-full' : 'rounded-r-full'
                     )}
                     href={helper.hrefSurah(surah.number)}
@@ -73,15 +75,16 @@ const QuranNavigation = ({ className, params }: Props<WithParams<'surah_number'>
 
         <li>
           <SettingsPopover side="bottom" align="end">
-            <Button className="flex items-center gap-x-2 py-1 group" variant="ghost2" size="none">
+            <Button className="flex items-center gap-x-2 group" variant="ghost2" size="fit">
               <SettingsIcon className="dark:stroke-primary" />
               <span className="hidden md:block">Pengaturan</span>
             </Button>
           </SettingsPopover>
         </li>
       </ul>
+      <Separator />
     </nav>
   );
 };
 
-export default QuranNavigation;
+export default SurahNavigation;

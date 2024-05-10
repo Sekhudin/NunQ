@@ -1,16 +1,16 @@
 import { mainContainerClass } from 'components/HOCs/container.hoc';
 import { cn } from 'packages/utils/cn';
-import Navigation from './components/navigation/quran.navigation';
-import SpecialSurahListLink from './components/link/special-surah-list.link';
-import SurahListLink from './components/link/surah-list.link';
+import QuranNavigation from './components/semantic/quran.nav';
+import SpecialSurahList from './components/semantic/special-surah.ul';
+import SurahList from './components/semantic/surah.ul';
 
 const QuranPage = () => {
   return (
     <main>
-      <Navigation />
+      <QuranNavigation />
       <div className={cn(mainContainerClass, 'py-8')}>
-        <SpecialSurahListLink />
-        <SurahListLink />
+        <SpecialSurahList />
+        <SurahList />
       </div>
     </main>
   );

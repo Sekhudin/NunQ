@@ -7,6 +7,7 @@ class Quran {
   static sumOfSurah = 114;
 
   static bismillah = Alfatihah.arabics['1'];
+  static surahNumberWithOutBismillah = [1, 9];
 
   static surahList = QuranPack.surahList;
 
