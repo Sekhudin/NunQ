@@ -1,8 +1,12 @@
-export default function Loading() {
+import LoadingContainer from 'components/containers/loading.container';
+
+const Loading = () => {
   return (
-    <div>
-      Common
-      <div>Loading</div>
-    </div>
+    <LoadingContainer>
+      <span>Image</span>
+      <span>Common Loading</span>
+    </LoadingContainer>
   );
-}
+};
+
+export default Loading;

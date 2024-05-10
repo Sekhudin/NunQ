@@ -40,6 +40,7 @@ const NavIconItem = ImageHOC({
   className: `size-8 md:size-10`,
   priority: true,
   loading: 'eager',
+  fill: false,
 });
 
 export { NavItemHOC, NavItem, NavIconItem };

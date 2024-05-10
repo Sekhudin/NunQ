@@ -20,6 +20,9 @@ const SearchCommand = () => {
       <NextLinkButton variant="ghost" href="/">
         ghost
       </NextLinkButton>
+      <NextLinkButton variant="ghost2" href="/">
+        ghost2
+      </NextLinkButton>
       <NextLinkButton variant="plain" href="/">
         plain
       </NextLinkButton>

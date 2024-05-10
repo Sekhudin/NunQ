@@ -1,35 +1,86 @@
-import { ArrowLeft, Settings } from 'lucide-react';
+import { ArrowLeft, Settings, ChevronRight, ChevronLeft } from 'lucide-react';
 import { RoundedIconSM } from 'components/HOCs/icon.hoc';
 import { containerClass } from 'components/HOCs/container.hoc';
 import { NextLinkButton } from 'packages/ui/next-link';
 import { Button } from 'packages/ui/button';
-import { cn, Props } from 'packages/utils/cn';
-import SettingsPopover from '../popover/settings.popover';
+import SettingsPopover from 'modules/quran/components/popover/settings.popover';
+import { cn, Props, WithParams } from 'packages/utils/cn';
+import service from 'modules/quran/service/quran.service';
+import helper from 'modules/quran/service/helper.service';
 
 const ArrowLeftIcon = RoundedIconSM(ArrowLeft);
 const SettingsIcon = RoundedIconSM(Settings);
-const QuranNavigation = ({ className }: Props<{ surahNumber: number }>) => {
+const ChevronRightIcon = RoundedIconSM(ChevronRight);
+const ChevronLeftIcon = RoundedIconSM(ChevronLeft);
+const QuranNavigation = ({ className, params }: Props<WithParams<'surah_number'>>) => {
   return (
-    <div className={cn(`bg_navigation sticky top-0 py-8`, className)}>
-      <div className={cn(containerClass, `flex justify-between items-center`)}>
-        <NextLinkButton
-          className="items-center gap-x-2 py-1 group"
-          href={'/quran'}
-          variant="plain"
-          size="none">
-          <ArrowLeftIcon />
-          <span>Daftar Surah</span>
-        </NextLinkButton>
+    <nav className={cn(`bg_navigation sticky top-0 py-8`, className)}>
+      <ul className={cn(containerClass, `flex justify-between items-center`)}>
+        <li>
+          <NextLinkButton
+            className="items-center gap-x-2 py-1 group"
+            variant="ghost2"
+            size="none"
+            href={'/quran'}>
+            <ArrowLeftIcon className="dark:stroke-primary" />
+            <span className="hidden md:block">Daftar Surah</span>
+          </NextLinkButton>
+        </li>
 
-        <span>link</span>
+        <li className="flex flex-col items-center">
+          <ul className="grid grid-cols-2 gap-x-2">
+            {service.prevNextSurah(params.surah_number).map((surah, key) => {
+              if (!surah) {
+                return (
+                  <li key={key}>
+                    <NextLinkButton
+                      className={cn(
+                        `size-full flex justify-between items-center gap-x-2 group rounded-none`,
+                        key === 0 ? 'flex-row-reverse rounded-l-full' : 'rounded-r-full',
+                        `pointer-events-none`
+                      )}
+                      href={'/quran'}
+                      variant={'outline'}
+                      size={'fit'}
+                      disabled>
+                      <span>-</span>
+                      {key === 0 ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                    </NextLinkButton>
+                  </li>
+                );
+              }
 
-        <SettingsPopover side="bottom" align="end">
-          <Button className="flex items-center gap-x-2 py-1 group" variant="plain" size="none">
-            <SettingsIcon /> <span>Pengaturan</span>
-          </Button>
-        </SettingsPopover>
-      </div>
-    </div>
+              return (
+                <li key={key}>
+                  <NextLinkButton
+                    className={cn(
+                      `size-full flex justify-between items-center gap-x-2 group rounded-none`,
+                      key === 0 ? 'flex-row-reverse rounded-l-full' : 'rounded-r-full'
+                    )}
+                    href={helper.hrefSurah(surah.number)}
+                    variant={'outline'}
+                    size={'fit'}>
+                    <span>{surah.name_id}</span>
+                    {key === 0 ? <ChevronLeftIcon /> : <ChevronRightIcon />}
+                  </NextLinkButton>
+                </li>
+              );
+            })}
+          </ul>
+
+          <div></div>
+        </li>
+
+        <li>
+          <SettingsPopover side="bottom" align="end">
+            <Button className="flex items-center gap-x-2 py-1 group" variant="ghost2" size="none">
+              <SettingsIcon className="dark:stroke-primary" />
+              <span className="hidden md:block">Pengaturan</span>
+            </Button>
+          </SettingsPopover>
+        </li>
+      </ul>
+    </nav>
   );
 };
 

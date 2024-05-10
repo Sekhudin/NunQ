@@ -4,9 +4,11 @@ export type {
   JSXComponent,
   Props,
   PropsFrom,
+  PropsHTML,
   Children,
   WithChildren,
   OmitChildren,
+  WithParams,
 } from 'types/global';
 export type {
   WithHooks,

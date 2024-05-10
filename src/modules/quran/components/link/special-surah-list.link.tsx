@@ -5,23 +5,24 @@ import helper from 'modules/quran/service/helper.service';
 
 const SpecialSurahListLink = ({ className }: Props) => {
   return (
-    <div
+    <ul
       className={cn(
         `flex flex-wrap justify-center items-center
         gap-x-4 gap-y-2 mt-6 mb-8`,
         className
       )}>
       {service.specialSurahList.map((surah, key) => (
-        <NextLinkButton
-          className={cn(`px-4 py-1 rounded-full duration-500 delay-100`)}
-          key={key}
-          variant="secondary"
-          size="fit"
-          href={helper.hrefSurah(surah.number)}>
-          <span>{surah.name_id}</span>
-        </NextLinkButton>
+        <li key={key}>
+          <NextLinkButton
+            className={cn(`px-4 py-1 rounded-full duration-500 delay-100`)}
+            variant="secondary"
+            size="fit"
+            href={helper.hrefSurah(surah.number)}>
+            <span>{surah.name_id}</span>
+          </NextLinkButton>
+        </li>
       ))}
-    </div>
+    </ul>
   );
 };
 

@@ -1,8 +1,13 @@
 import * as QuranPack from 'quran-pack';
+import Alfatihah from 'quran-pack/surah/1';
 import Surah, { specialSurah, madaniyah, makkiyah } from './surah-extended.class';
 import type { SurahNumber, SurahNameID } from './quran.types';
 
 class Quran {
+  static sumOfSurah = 114;
+
+  static bismillah = Alfatihah.arabics['1'];
+
   static surahList = QuranPack.surahList;
 
   static specialSurahList = QuranPack.surahList.filter((surah) =>

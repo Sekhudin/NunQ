@@ -6,13 +6,13 @@ import SurahListLink from './components/link/surah-list.link';
 
 const QuranPage = () => {
   return (
-    <>
+    <main>
       <Navigation />
       <div className={cn(mainContainerClass, 'py-8')}>
         <SpecialSurahListLink />
         <SurahListLink />
       </div>
-    </>
+    </main>
   );
 };
 

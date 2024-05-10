@@ -1,4 +1,4 @@
-import { MainHeader, MainFooter, Childs } from 'components/HOCs/container.hoc';
+import { MainHeader, MainFooter } from 'components/HOCs/container.hoc';
 import { WithScrollArea } from 'components/HOCs/layout-scroll.hoc';
 import type { NextLayoutProps } from 'types/global';
 import QuranHeaderContent from './components/content/header.content';
@@ -12,9 +12,7 @@ const QuranLayout = ({ children }: NextLayoutProps) => {
       <header>
         <HeaderContent />
       </header>
-
-      <main>{children}</main>
-
+      {children}
       <footer>
         <FooterContent />
       </footer>
@@ -22,5 +20,6 @@ const QuranLayout = ({ children }: NextLayoutProps) => {
   );
 };
 
-const Layout = WithScrollArea(QuranLayout);
+const Layout = QuranLayout;
+// const Layout = WithScrollArea(QuranLayout);
 export default Layout;

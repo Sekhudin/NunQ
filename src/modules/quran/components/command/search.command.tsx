@@ -20,6 +20,7 @@ import { cn, Props } from 'packages/utils/cn';
 import useMounted from 'packages/hooks/use-mounted';
 import useQuranSearchesStore from 'stores/quran-searches.store';
 import useSearchCommandStore from './search.command.store';
+import helper from 'modules/quran/service/helper.service';
 
 const FileIcon = PlainIconSM(File);
 const FileHeartIcon = PlainIconSM(FileHeart);
@@ -144,10 +145,10 @@ const SearchCommand = ({ className }: Props) => {
               {state.surahList.length > 0 && state.surahMode && (
                 <CommandGroup heading="Surah">
                   {state.surahList.map((surah, key) => (
-                    <NextLink key={key} href={`/quran/${surah.number}`}>
+                    <NextLink key={key} href={helper.hrefSurah(surah.number)}>
                       <CommandItem
                         key={key}
-                        value={`/quran/${surah.number}`}
+                        value={helper.hrefSurah(surah.number)}
                         keywords={[`@${surah.name_id}`]}
                         onSelect={searchesAction.addSurahToRecents(
                           surah,

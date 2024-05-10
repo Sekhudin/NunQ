@@ -1,6 +1,8 @@
 import type { NextResponse } from 'next/server';
+import React from 'react';
 
 export type Props<P = unknown> = P & { className?: string };
+export type PropsHTML<T extends unknown> = React.HTMLAttributes<T>;
 export type PropsFrom<
   T extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>,
   P extends Record<string, any> = {}
@@ -11,6 +13,9 @@ export type Children = React.ReactNode;
 
 export type WithChildren = { children: React.ReactNode };
 export type OmitChildren<T extends Record<string, any>> = Omit<T, 'children'>;
+export type WithParams<T extends string = string> = {
+  params: Record<T, string>;
+};
 
 export type NextLayoutProps<T extends string | null = null> = T extends string
   ? Readonly<Record<'children' | T, Children>>
