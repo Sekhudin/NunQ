@@ -30,9 +30,10 @@ const SurahHeadSection = ({ className, params }: Props<WithParams<'surah_number'
       {service.isWithBismillah(params.surah_number) ? (
         <NextImage
           className={`size-fit dark:invert opacity-70 dark:opacity-85 select-none
-          pointer-events-none`}
+          pointer-events-none contrast-200`}
           src={BismillahPNG}
           alt="bismillah"
+          quality={100}
           priority
           fill={false}
         />

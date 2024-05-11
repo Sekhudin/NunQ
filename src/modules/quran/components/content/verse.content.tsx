@@ -23,7 +23,7 @@ const VerseContent = ({ className, value }: Props<{ value: SurahVerse }>) => {
 
       <span className="flex-grow">
         <span
-          className={cn('block text-right')}
+          className={cn('block text-zinc-600 dark:text-zinc-300 text-right')}
           style={{ fontSize: `${arabic.size}px`, ...arabic.family.style }}>
           {value.arabic}
         </span>

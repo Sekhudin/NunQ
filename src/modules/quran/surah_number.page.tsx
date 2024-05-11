@@ -9,7 +9,7 @@ const Page = ({ params }: PageParams<'surah_number'>) => {
   return (
     <main className="">
       <SurahNavigation params={params} />
-      <div className="bg-background">
+      <div className="bg_card">
         <div className={cn(mainContainerClass, 'px-0 py-8')}>
           <SurahHeadSection params={params} />
           <AyahSurahSection params={params} />

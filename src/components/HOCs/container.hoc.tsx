@@ -14,7 +14,7 @@ const ContainerHOC = (baseClassName: string) => {
   return HOC;
 };
 
-const main = 'container max-w-5xl 2xl:max-w-4xl px-4';
+const main = 'container max-w-5xl 2xl:max-w-4xl px-6';
 const MainHeader = ContainerHOC(`flex justify-between items-center py-4 md:py-6 ${main}`);
 const MainFooter = ContainerHOC(`flex justify-between items-center py-12 ${main}`);
 const containerClass = `${main}`;
