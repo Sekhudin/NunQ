@@ -1,7 +1,7 @@
 'use client';
 import { useRouter } from 'next/navigation';
 import { Search, AtSign, File, FileHeart } from 'lucide-react';
-import { PlainIconSM, RoundedIconMD, CommandIconSM } from 'components/HOCs/icon.hoc';
+import { DynamicIconMD, IconXS, IconSM } from 'components/HOCs/icon.hoc';
 import {
   Command,
   CommandInput,
@@ -22,10 +22,10 @@ import useQuranSearchesStore from 'stores/quran-searches.store';
 import useSearchCommandStore from './search.command.store';
 import helper from 'modules/quran/service/helper.service';
 
-const FileIcon = PlainIconSM(File);
-const FileHeartIcon = PlainIconSM(FileHeart);
-const SearchIcon = RoundedIconMD(Search);
-const AtSignIcon = CommandIconSM(AtSign);
+const SearchIcon = DynamicIconMD(Search);
+const FileIcon = IconXS(File);
+const FileHeartIcon = IconXS(FileHeart);
+const AtSignIcon = IconSM(AtSign);
 
 const SearchCommand = ({ className }: Props) => {
   const router = useRouter();
@@ -88,7 +88,10 @@ const SearchCommand = ({ className }: Props) => {
                         <span>{recent.name}</span>
                       </CommandItem>
                       <span className="absolute top-[50%] right-2 translate-y-[-50%] flex items-center gap-x-2">
-                        <RatingOffIcon onClick={searchesAction.addRecentsToFavorites(recent)} />
+                        <RatingOffIcon
+                          className="cursor-pointer"
+                          onClick={searchesAction.addRecentsToFavorites(recent)}
+                        />
                         <RemoveIcon onClick={searchesAction.removeFromRecents(key)} />
                       </span>
                     </div>
@@ -166,7 +169,7 @@ const SearchCommand = ({ className }: Props) => {
             <div className="flex items-center space-x-2 px-3 py-2 text-xs font-light font-mono bg-accent/20">
               <div>Ketik</div>
               <div className="flex items-center space-x-2">
-                <AtSignIcon className="bg-white dark:bg-accent" />
+                <AtSignIcon className="border border-border p-0.5 rounded-md" />
                 <p>untuk cari surah</p>
               </div>
             </div>

@@ -3,8 +3,9 @@ import { twMerge } from 'tailwind-merge';
 export type {
   JSXComponent,
   Props,
-  PropsFrom,
   PropsHTML,
+  PropsFrom,
+  PickPropsFrom,
   Children,
   WithChildren,
   OmitChildren,

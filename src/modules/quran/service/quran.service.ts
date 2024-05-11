@@ -11,6 +11,10 @@ class QuranService {
 
   public findSurahByNumber = Quran.findSurahByNumber;
 
+  public withSurah = Quran.withSurah;
+
+  public init = Quran.init;
+
   public isWithBismillah(numeric: string | number) {
     return !Quran.surahNumberWithOutBismillah.includes(Number(numeric));
   }
@@ -34,5 +38,4 @@ class QuranService {
 }
 
 const service = new QuranService();
-export type * from 'packages/quran-pack/quran.types';
 export default service;

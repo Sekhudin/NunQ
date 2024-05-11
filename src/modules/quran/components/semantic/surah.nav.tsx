@@ -1,30 +1,30 @@
 import { ArrowLeft, Settings, ChevronRight, ChevronLeft } from 'lucide-react';
-import { RoundedIconSM } from 'components/HOCs/icon.hoc';
+import { DynamicIconButton, IconButton } from 'components/HOCs/icon.hoc';
 import { containerClass } from 'components/HOCs/container.hoc';
 import { Separator } from 'packages/ui/separator';
 import { NextLinkButton } from 'packages/ui/next-link';
 import { Button } from 'packages/ui/button';
-import SettingsPopover from 'modules/quran/components/popover/settings.popover';
 import { cn, Props, WithParams } from 'packages/utils/cn';
+import SettingsPopover from 'modules/quran/components/popover/settings.popover';
 import service from 'modules/quran/service/quran.service';
 import helper from 'modules/quran/service/helper.service';
 
-const ArrowLeftIcon = RoundedIconSM(ArrowLeft);
-const SettingsIcon = RoundedIconSM(Settings);
-const ChevronRightIcon = RoundedIconSM(ChevronRight);
-const ChevronLeftIcon = RoundedIconSM(ChevronLeft);
+const ArrowLeftIcon = DynamicIconButton(ArrowLeft, 'hoverPrimary');
+const SettingsIcon = DynamicIconButton(Settings, 'hoverPrimary');
+const ChevronRightIcon = IconButton(ChevronRight, 'primary');
+const ChevronLeftIcon = IconButton(ChevronLeft, 'primary');
 const SurahNavigation = ({ className, params }: Props<WithParams<'surah_number'>>) => {
   return (
     <nav className={cn(`bg_navigation sticky top-0 min-h-3`, className)}>
       <Separator />
-      <ul className={cn(containerClass, `flex justify-between items-center py-3 md:py-8`)}>
+      <ul className={cn(containerClass, `flex justify-between items-center py-4 md:py-10`)}>
         <li>
           <NextLinkButton
             className="items-center gap-x-2 group"
-            variant="ghost2"
-            size="fit"
+            variant="plain"
+            size="none"
             href={'/quran'}>
-            <ArrowLeftIcon className="dark:stroke-primary" />
+            <ArrowLeftIcon className="size-6" />
             <span className="hidden md:block">Daftar Surah</span>
           </NextLinkButton>
         </li>
@@ -37,13 +37,13 @@ const SurahNavigation = ({ className, params }: Props<WithParams<'surah_number'>
                   <li key={key}>
                     <NextLinkButton
                       className={cn(
-                        `size-full flex justify-between items-center gap-x-2 group rounded-none`,
+                        `flex justify-between items-center gap-x-2 group rounded-none`,
                         key === 0 ? 'flex-row-reverse rounded-l-full' : 'rounded-r-full',
                         `pointer-events-none`
                       )}
                       href={'/quran'}
                       variant={'outline'}
-                      size={'fit'}
+                      size={"auto"}
                       disabled>
                       <span>-</span>
                       {key === 0 ? <ChevronLeftIcon /> : <ChevronRightIcon />}
@@ -61,7 +61,7 @@ const SurahNavigation = ({ className, params }: Props<WithParams<'surah_number'>
                     )}
                     href={helper.hrefSurah(surah.number)}
                     variant={'outline'}
-                    size={'fit'}>
+                    size={"auto"}>
                     <span>{surah.name_id}</span>
                     {key === 0 ? <ChevronLeftIcon /> : <ChevronRightIcon />}
                   </NextLinkButton>
@@ -75,8 +75,8 @@ const SurahNavigation = ({ className, params }: Props<WithParams<'surah_number'>
 
         <li>
           <SettingsPopover side="bottom" align="end">
-            <Button className="flex items-center gap-x-2 group" variant="ghost2" size="fit">
-              <SettingsIcon className="dark:stroke-primary" />
+            <Button className="flex items-center gap-x-2 group" variant="plain" size="none">
+              <SettingsIcon className="size-6" />
               <span className="hidden md:block">Pengaturan</span>
             </Button>
           </SettingsPopover>

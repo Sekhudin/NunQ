@@ -7,6 +7,10 @@ export type PropsFrom<
   T extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>,
   P extends Record<string, any> = {}
 > = React.ComponentProps<T> & P;
+export type PickPropsFrom<
+  T extends keyof JSX.IntrinsicElements | React.JSXElementConstructor<any>,
+  K extends keyof React.ComponentProps<T>
+> = Pick<React.ComponentProps<T>, K>;
 export type JSXComponent<P = unknown> = (p: Props<P>) => React.JSX.Element;
 
 export type Children = React.ReactNode;

@@ -4,8 +4,8 @@ import type { QuranSettings } from 'types/store';
 
 const stateCreator: QuranSettings.StateCreator = (set) => ({
   arabicFont: {
-    family: arabic.amiri,
-    size: 28,
+    family: arabic.lateef,
+    size: 52,
   },
   setArabicFontFamily: (name) =>
     set((state) => {

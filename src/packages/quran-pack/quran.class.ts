@@ -7,6 +7,7 @@ class Quran {
   static sumOfSurah = 114;
 
   static bismillah = Alfatihah.arabics['1'];
+
   static surahNumberWithOutBismillah = [1, 9];
 
   static surahList = QuranPack.surahList;
@@ -18,6 +19,10 @@ class Quran {
   static surahMakkiyah = QuranPack.surahList.filter((surah) => surah.category === makkiyah);
 
   static surahMadaniyah = QuranPack.surahList.filter((surah) => surah.category === madaniyah);
+
+  static withSurah = (name: string) => {
+    return 'سورة'.concat(' ',name.trim());
+  };
 
   static init = (value: SurahNumber | SurahNameID) => {
     return new Surah(value);

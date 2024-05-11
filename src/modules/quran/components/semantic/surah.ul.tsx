@@ -1,6 +1,6 @@
 import { NextLinkButton } from 'packages/ui/next-link';
 import { cn, Props } from 'packages/utils/cn';
-import { amiri } from 'packages/font/arabic.font';
+import { amiri, lateef } from 'packages/font/arabic.font';
 import service from 'modules/quran/service/quran.service';
 import helper from 'modules/quran/service/helper.service';
 
@@ -26,7 +26,7 @@ const SurahList = ({ className }: Props) => {
               </span>
             </span>
 
-            <span className={cn(amiri.className, `grow-0 text-2xl`)}>{surah.name}</span>
+            <span className={cn( lateef.className, `grow-0 text-2xl`)}>{surah.name}</span>
           </NextLinkButton>
         </li>
       ))}

@@ -6,7 +6,7 @@ class SurahExtended extends QuranPack.Surah {
     super(value);
   }
 
-  public details = () => {
+  public details() {
     const info: SurahList[number] & Record<'isMakkiyah' | 'isMadaniyah', boolean> = {
       number: this.surahNumber,
       name: this.name,
@@ -19,7 +19,11 @@ class SurahExtended extends QuranPack.Surah {
       isMadaniyah: this.isMadaniyah,
     };
     return { surah: this, info };
-  };
+  }
+
+  public verses() {
+    return Object.keys(this.arabics).map((verse) => Number(verse));
+  }
 }
 
 export const specialSurah: SurahNameID[] = [

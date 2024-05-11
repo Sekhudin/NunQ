@@ -12,25 +12,20 @@ import {
   EllipsisVertical,
   Star,
 } from 'lucide-react';
-import {
-  RoundedPlainIconSM,
-  RatingOffIconSM,
-  RatingOnIconSM,
-  RemoveIconSM,
-} from 'components/HOCs/icon.hoc';
+import { IconSM } from 'components/HOCs/icon.hoc';
 
-export const CheckIcon = RoundedPlainIconSM(Check);
-export const ChevronRightIcon = RoundedPlainIconSM(ChevronRight);
-export const ChevronLeftIcon = RoundedPlainIconSM(ChevronLeft);
-export const ChevronUpIcon = RoundedPlainIconSM(ChevronUp);
-export const ChevronDownIcon = RoundedPlainIconSM(ChevronDown);
-export const DotIcon = RoundedPlainIconSM(Dot);
-export const DotsHorizontalIcon = RoundedPlainIconSM(Ellipsis);
-export const DotsVerticalIcon = RoundedPlainIconSM(EllipsisVertical);
-export const SearchIcon = RoundedPlainIconSM(Search);
-export const CloseIcon = RoundedPlainIconSM(X);
+export const CheckIcon = IconSM(Check);
+export const ChevronRightIcon = IconSM(ChevronRight);
+export const ChevronLeftIcon = IconSM(ChevronLeft);
+export const ChevronUpIcon = IconSM(ChevronUp);
+export const ChevronDownIcon = IconSM(ChevronDown);
+export const DotIcon = IconSM(Dot);
+export const DotsHorizontalIcon = IconSM(Ellipsis);
+export const DotsVerticalIcon = IconSM(EllipsisVertical);
+export const SearchIcon = IconSM(Search);
+export const CloseIcon = IconSM(X);
 
-export const RatingOffIcon = RatingOffIconSM(Star);
-export const RatingOnIcon = RatingOnIconSM(Star);
-export const RemoveIcon = RemoveIconSM(X);
-export const CircleRemoveIcon = RemoveIconSM(CircleX);
+export const RatingOffIcon = IconSM(Star, 'ratingOff');
+export const RatingOnIcon = IconSM(Star, 'ratingOn');
+export const RemoveIcon = IconSM(X, 'remove');
+export const CircleRemoveIcon = IconSM(CircleX, 'remove');

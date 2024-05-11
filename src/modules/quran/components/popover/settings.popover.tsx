@@ -1,13 +1,15 @@
 import { Popover, PopoverTrigger, PopoverContent } from 'packages/ui/popover';
-import { cn, Props, PropsFrom, WithChildren } from 'packages/utils/cn';
+import { cn, Props, PropsFrom, PickPropsFrom, WithChildren } from 'packages/utils/cn';
 
 const SettingsPopover = ({
   className,
   children,
+  modal,
   ...props
-}: Props<WithChildren & PropsFrom<typeof PopoverContent>>) => {
+}: Props<PropsFrom<typeof PopoverContent, WithChildren>> &
+  PickPropsFrom<typeof Popover, 'modal'>) => {
   return (
-    <Popover>
+    <Popover modal={modal}>
       <PopoverTrigger asChild>{children}</PopoverTrigger>
       <PopoverContent className={cn(``, className)} {...props}>
         Content

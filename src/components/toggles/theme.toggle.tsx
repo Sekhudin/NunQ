@@ -1,12 +1,12 @@
 'use client';
 import { useTheme } from 'next-themes';
 import { SunIcon, MoonStarIcon } from 'lucide-react';
-import { RoundedIconMD } from 'components/HOCs/icon.hoc';
+import { DynamicIconMD } from 'components/HOCs/icon.hoc';
 import { Button } from 'packages/ui/button';
 import { cn, Props } from 'packages/utils/cn';
 
-const LightIcon = RoundedIconMD(SunIcon);
-const DarkIcon = RoundedIconMD(MoonStarIcon);
+const LightIcon = DynamicIconMD(SunIcon);
+const DarkIcon = DynamicIconMD(MoonStarIcon, 'hoverPrimary');
 const ThemeToggle = ({ className, ...props }: Props<React.ComponentProps<typeof Button>>) => {
   const { setTheme, theme } = useTheme();
 
@@ -29,7 +29,7 @@ const ThemeToggle = ({ className, ...props }: Props<React.ComponentProps<typeof 
       onClick={onClickHandler}
       {...props}>
       <LightIcon className="dark:hidden" />
-      <DarkIcon className="hidden dark:block dark:stroke-primary" />
+      <DarkIcon className="hidden dark:block dark:stroke-primary dark:group-hover:fill-primary/40" />
     </Button>
   );
 };
