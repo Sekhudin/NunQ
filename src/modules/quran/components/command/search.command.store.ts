@@ -1,7 +1,8 @@
 import { create, immer } from 'packages/zustand';
+import { SurahList } from 'packages/quran-pack/quran.types';
 import { availableLinks, type AvailableLink } from 'configs/links.config';
 import type { StateCreator } from 'types/store';
-import service, { type SurahList } from 'modules/quran/service/quran.service';
+import service from 'modules/quran/service/quran.service';
 
 interface State {
   surahMode: boolean;

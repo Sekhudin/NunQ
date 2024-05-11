@@ -16,7 +16,6 @@ const SpecialSurahList = ({ className }: Props) => {
           <NextLinkButton
             className={cn(`px-4 py-1 rounded-full duration-500 delay-100`)}
             variant="secondary"
-            size="fit"
             href={helper.hrefSurah(surah.number)}>
             <span>{surah.name_id}</span>
           </NextLinkButton>
