@@ -1,19 +1,15 @@
 import { create, immer } from 'packages/zustand';
-import * as arabic from 'packages/font/arabic.font';
+import { arabicBody } from 'packages/font/arabic.font';
 import type { QuranSettings } from 'types/store';
 
 const stateCreator: QuranSettings.StateCreator = (set) => ({
   arabicFont: {
-    family: arabic.amiri,
+    family: arabicBody['amiri'],
     size: 32,
   },
   setArabicFontFamily: (name) =>
     set((state) => {
-      state.arabicFont.family = arabic[name];
-    }),
-  setArabicFontSize: (number) =>
-    set((state) => {
-      state.arabicFont.size = number || state.arabicFont.size + 1;
+      state.arabicFont.family = arabicBody[name];
     }),
   showLatin: true,
   setShowLatin: (show) => {

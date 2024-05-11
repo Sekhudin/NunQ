@@ -3,7 +3,7 @@ import { cn, Props, WithParams } from 'packages/utils/cn';
 import VerseContent from 'modules/quran/components/content/verse.content';
 import service from 'modules/quran/service/quran.service';
 
-const AyahSurahSection = ({ className, params }: Props<WithParams<'surah_number'>>) => {
+const SurahVerseSection = ({ className, params }: Props<WithParams<'surah_number'>>) => {
   const surah = service.init(Number(params.surah_number));
   const verses = surah.verses();
 
@@ -19,4 +19,4 @@ const AyahSurahSection = ({ className, params }: Props<WithParams<'surah_number'
   );
 };
 
-export default AyahSurahSection;
+export default SurahVerseSection;

@@ -1,4 +1,5 @@
 import type { NextResponse } from 'next/server';
+import type { NextFont, NextFontWithVariable } from 'next/dist/compiled/@next/font';
 import React from 'react';
 
 export type Props<P = unknown> = P & { className?: string };
@@ -33,6 +34,8 @@ export interface NextPageProps<T extends string, S extends string = string> {
 export type PageParams<T extends string = string> = {
   params: Record<T, string>;
 };
+
+export type Font = NextFont | NextFontWithVariable;
 
 export interface HttpResponse<
   T extends Record<string, any> | null = Record<string, any>,

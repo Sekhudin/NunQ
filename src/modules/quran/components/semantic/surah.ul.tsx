@@ -1,6 +1,6 @@
 import { NextLinkButton } from 'packages/ui/next-link';
 import { cn, Props } from 'packages/utils/cn';
-import { amiri, lateef } from 'packages/font/arabic.font';
+import { arabicSpecial } from 'packages/font/arabic.font';
 import service from 'modules/quran/service/quran.service';
 import helper from 'modules/quran/service/helper.service';
 
@@ -12,7 +12,7 @@ const SurahList = ({ className }: Props) => {
           <NextLinkButton
             className={cn(`bg_card size-full border border-transparent dark:sm:border-border
             hover:border-primary dark:hover:border-primary hover:text-zinc-800 dark:hover:text-zinc-200
-            text-wrap text-base py-4 rounded-xl duration-500 delay-100 group`)}
+            text-wrap text-base py-6 rounded-xl duration-500 delay-100 group`)}
             variant={'ghost'}
             size={'auto'}
             href={helper.hrefSurah(surah.number)}>
@@ -26,7 +26,13 @@ const SurahList = ({ className }: Props) => {
               </span>
             </span>
 
-            <span className={cn( lateef.className, `grow-0 text-2xl`)}>{surah.name}</span>
+            <span
+              className={cn(`grow-0 text-xl`)}
+              style={{
+                ...arabicSpecial['surah name'].style,
+              }}>
+              {surah.name}
+            </span>
           </NextLinkButton>
         </li>
       ))}

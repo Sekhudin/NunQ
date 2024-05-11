@@ -17,7 +17,7 @@ const SurahNavigation = ({ className, params }: Props<WithParams<'surah_number'>
   return (
     <nav className={cn(`bg_navigation sticky top-0 min-h-3 z-10`, className)}>
       <Separator />
-      <ul className={cn(containerClass, `flex justify-between items-center py-4 md:py-10`)}>
+      <ul className={cn(containerClass, `flex justify-between items-center py-6 md:py-10`)}>
         <li>
           <NextLinkButton
             className="items-center gap-x-2 group"

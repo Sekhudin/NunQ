@@ -82,7 +82,7 @@
   }
 
   .bg_card {
-    @apply bg-background dark:bg-background/30;
+    @apply bg-background dark:bg-zinc-800;
   }
 
   div[role='dialog']:focus-visible,

@@ -62,7 +62,7 @@ const SearchCommand = ({ className }: Props) => {
         <DialogContent
           className={cn(
             `top-[2dvh] lg:top-[8dvh] translate-y-0 max-w-[95dvw] lg:max-w-5xl
-            2xl:max-w-4xl bg-transparent p-0 md:p-0`
+            2xl:max-w-4xl bg-transparent p-0 md:p-0 shadow-none`
           )}
           closeClassName="top-2 right-2">
           <Command label="My Command">

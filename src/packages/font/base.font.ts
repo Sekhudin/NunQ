@@ -1,4 +1,7 @@
-import { Inter, Amiri,  } from 'next/font/google';
+import { Inter, Amiri } from 'next/font/google';
 
-export const inter = Inter({ subsets: ['latin'] });
-export const arabic = Amiri({ weight: '700', subsets: ['arabic'] });
+export const inter = Inter({
+  weight: ['300', '400', '500', '600', '700', '800', '900'],
+  subsets: ['latin'],
+  preload: true,
+});

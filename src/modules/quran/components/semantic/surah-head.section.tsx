@@ -1,7 +1,7 @@
 import { NextImage } from 'packages/ui/next-image';
 import { cn, Props, WithParams } from 'packages/utils/cn';
 import { BismillahPNG } from 'packages/public/png';
-import { notoNastaliqUrdu } from 'packages/font/arabic.font';
+import { arabicSpecial } from 'packages/font/arabic.font';
 import service from 'modules/quran/service/quran.service';
 
 const SurahHeadSection = ({ className, params }: Props<WithParams<'surah_number'>>) => {
@@ -16,7 +16,7 @@ const SurahHeadSection = ({ className, params }: Props<WithParams<'surah_number'
           `text-3xl text-zinc-600 dark:text-zinc-300 font-medium select-none
           tracking-[-0.08em]`
         )}
-        style={{ ...notoNastaliqUrdu.style }}>
+        style={{ ...arabicSpecial['surah name'].style }}>
         {service.withSurah(surah.name)}
       </span>
 

@@ -1,17 +1,16 @@
 import type { StateCreator as SC } from 'zustand';
 import type { PersistOptions as PO } from 'zustand/middleware';
-import type { NextFont, NextFontWithVariable } from 'next/dist/compiled/@next/font';
 import type { SurahList } from 'packages/quran-pack';
-import * as arabic from 'packages/font/arabic.font';
+import type { arabicBody } from 'packages/font/arabic.font';
+import type { Font } from './global';
 
 namespace QuranSettings {
   export interface State {
     arabicFont: {
-      family: NextFont | NextFontWithVariable;
+      family: Font;
       size: number;
     };
-    setArabicFontFamily: (name: keyof typeof arabic) => void;
-    setArabicFontSize: (size?: number) => void;
+    setArabicFontFamily: (name: keyof typeof arabicBody) => void;
     showLatin: boolean;
     setShowLatin: (show: boolean) => void;
     showTranslation: boolean;
