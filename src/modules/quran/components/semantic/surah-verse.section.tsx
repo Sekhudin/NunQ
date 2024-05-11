@@ -11,7 +11,7 @@ const SurahVerseSection = ({ className, params }: Props<WithParams<'surah_number
     <div>
       {verses.map((verse, key) => (
         <section className={cn(``, className)} id={`${verse}`} key={key}>
-          <VerseContent className="px-6 py-8" value={surah.getVerse(verse)} />
+          <VerseContent className="px-6 py-16" verse={verse} value={surah.getVerse(verse)} />
           <Separator />
         </section>
       ))}
