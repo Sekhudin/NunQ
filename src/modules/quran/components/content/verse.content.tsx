@@ -10,7 +10,7 @@ import helper from 'modules/quran/service/helper.service';
 const MoreVerticalIcon = DynamicIconXS(MoreVertical);
 
 const VerseNumber = ({ className, verse }: Props<{ verse: number }>) => (
-  <span className={cn('relative size-10 mx-2', className)}>
+  <div className={cn('relative size-10 mx-2', className)}>
     <span
       className={`absolute inset-0 bg-primary/10 dark:bg-foreground/10 border border-primary
       dark:border-foreground rounded-full`}
@@ -20,7 +20,7 @@ const VerseNumber = ({ className, verse }: Props<{ verse: number }>) => (
       -translate-y-[50%] text-lg text-primary dark:text-foreground`}>
       {helper.convertToArabicNumber(verse)}
     </span>
-  </span>
+  </div>
 );
 
 const VerseContent = ({
@@ -43,9 +43,9 @@ const VerseContent = ({
       </div>
 
       <div className="flex-grow">
-        <div
+        <ul
           className={cn(
-            `flex flex-wrap flex-row-reverse justify-start items-center gap-x-1 gap-y-4
+            `flex flex-wrap flex-row-reverse justify-start items-center gap-x-1 gap-y-8
             font-bold`
           )}
           style={{
@@ -55,20 +55,20 @@ const VerseContent = ({
           {versePerWords.map((arabic, key) => {
             if (!isLastIndex(key)) {
               return (
-                <span className="" key={key}>
+                <li className="" key={key}>
                   {arabic}
-                </span>
+                </li>
               );
             }
 
             return (
-              <span className="flex" key={key}>
+              <li className="flex" key={key}>
                 <VerseNumber verse={verse} />
                 {arabic}
-              </span>
+              </li>
             );
           })}
-        </div>
+        </ul>
 
         <div className="flex flex-col gap-y-2 mt-8">
           <span className="block text-primary dark:text-foreground font-semibold">

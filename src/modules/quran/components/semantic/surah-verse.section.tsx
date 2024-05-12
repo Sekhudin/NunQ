@@ -22,7 +22,7 @@ const SurahVerseSection = ({ className, params }: Props<WithParams<'surah_number
   });
 
   return (
-    <div>
+    <>
       {verses.map((verse, key) => (
         <section
           className={cn(
@@ -41,7 +41,7 @@ const SurahVerseSection = ({ className, params }: Props<WithParams<'surah_number
           <Separator />
         </section>
       ))}
-    </div>
+    </>
   );
 };
 
