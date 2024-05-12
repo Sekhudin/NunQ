@@ -10,7 +10,7 @@ const Page = ({ params }: PageParams<'surah_number'>) => {
     <main className="">
       <SurahNavigation params={params} />
       <div className="">
-        <div className={cn(mainContainerClass, 'px-0 py-8')}>
+        <div className={cn(mainContainerClass, 'px-0 pt-8')}>
           <SurahHeadSection params={params} />
           <SurahVerseSection params={params} />
         </div>

@@ -25,5 +25,5 @@ const stateCreator: QuranSettings.StateCreator = (set) => ({
   },
 });
 
-const useQuranSettingsStore = create<QuranSettings.State>()(immer(stateCreator));
+const useQuranSettingsStore = create<QuranSettings.ActionState>()(immer(stateCreator));
 export default useQuranSettingsStore;

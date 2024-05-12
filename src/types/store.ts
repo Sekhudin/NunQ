@@ -10,34 +10,43 @@ namespace QuranSettings {
       family: Font;
       size: number;
     };
-    setArabicFontFamily: (name: keyof typeof arabicBody) => void;
     showLatin: boolean;
-    setShowLatin: (show: boolean) => void;
     showTranslation: boolean;
+  }
+
+  export interface Action {
+    setArabicFontFamily: (name: keyof typeof arabicBody) => void;
+    setShowLatin: (show: boolean) => void;
     setShowTranslation: (show: boolean) => void;
   }
-  export type StateCreator = SC<State, [['zustand/immer', never]], []>;
+
+  export interface ActionState extends Action, State {}
+  export type StateCreator = SC<ActionState, [['zustand/immer', never]], []>;
 }
 
 namespace QuranSearches {
   export interface State<T extends Record<string, any>> {
     recents: T[];
+    favorites: T[];
+  }
+
+  export interface Action<T extends Record<string, any>> {
     addSurahToRecents: (
       surah: SurahList[number],
       cb: (href: string) => void
     ) => (href: string) => void;
     removeFromRecents: (index: number) => () => void;
-    favorites: T[];
     addRecentsToFavorites: (recent: T) => () => void;
     removeFromFavorites: (index: number) => () => void;
   }
+
+  export interface ActionState<T extends Record<string, any>> extends Action<T>, State<T> {}
+  export type PersistOptions<T extends Record<string, any>> = PO<ActionState<T>>;
   export type StateCreator<T extends Record<string, any>> = SC<
-    State<T>,
+    ActionState<T>,
     [['zustand/persist', unknown], ['zustand/immer', never]],
     []
   >;
-
-  export type PersistOptions<T extends Record<string, any>> = PO<State<T>>;
 }
 
 export type StateCreator<T extends Record<string, any>> = SC<T, [['zustand/immer', never]], []>;

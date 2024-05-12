@@ -46,7 +46,7 @@ const persistOptions: QuranSearches.PersistOptions<AvailableLink> = {
   name: STORE_NAME.QURAN_SEARCHES,
   storage: createJSONStorage(() => localStorage),
 };
-const useQuranSearchesStore = create<QuranSearches.State<AvailableLink>>()(
+const useQuranSearchesStore = create<QuranSearches.ActionState<AvailableLink>>()(
   persist(immer(stateCreator), persistOptions)
 );
 export default useQuranSearchesStore;
