@@ -3,8 +3,13 @@ import { STORE_NAME, MAX } from 'configs/store.config';
 import type { AvailableLink } from 'configs/links.config';
 import type { QuranSearches } from 'types/store';
 
-const stateCreator: QuranSearches.StateCreator<AvailableLink> = (set) => ({
+const DEFAULT_QURAN_SEARCHES: QuranSearches.State<AvailableLink> = {
   recents: [],
+  favorites: [],
+};
+
+const stateCreator: QuranSearches.StateCreator<AvailableLink> = (set) => ({
+  ...DEFAULT_QURAN_SEARCHES,
   addSurahToRecents: (surah, callback) => (href) => {
     set((state) => {
       const isItemRecents = state.recents.filter((v) => v.href === href).length > 0;
@@ -25,7 +30,6 @@ const stateCreator: QuranSearches.StateCreator<AvailableLink> = (set) => ({
       state.recents.splice(index, 1);
     });
   },
-  favorites: [],
   addRecentsToFavorites: (recent) => () => {
     set((state) => {
       const isItemFavorites = state.favorites.filter((v) => v.href === recent.href).length > 0;

@@ -9,18 +9,26 @@ interface State {
   links: AvailableLink[];
   surahList: SurahList;
   open: boolean;
-  setOpen: (open: boolean) => void;
   search: string;
+}
+
+interface Action {
+  setOpen: (open: boolean) => void;
   setSearch: (value: string) => void;
   triggerCommandOnClick: (e: React.MouseEvent<HTMLElement, MouseEvent>) => void;
   commandItemOnSelect: (cb: (href: string) => void) => (href: string) => void;
 }
 
-const stateCreator: StateCreator<State> = (set) => ({
+const DEFAULT_STATE: State = {
   surahMode: false,
   links: availableLinks,
   surahList: service.surahList,
   open: false,
+  search: '',
+};
+
+const stateCreator: StateCreator<State & Action> = (set) => ({
+  ...DEFAULT_STATE,
   setOpen: (open) => {
     set((state) => {
       state.open = open;
@@ -28,7 +36,6 @@ const stateCreator: StateCreator<State> = (set) => ({
       state.surahMode = false;
     });
   },
-  search: '',
   setSearch: (value) => {
     set((state) => {
       state.search = value;
@@ -52,5 +59,5 @@ const stateCreator: StateCreator<State> = (set) => ({
   },
 });
 
-const useSearchCommandStore = create<State>()(immer(stateCreator));
+const useSearchCommandStore = create<State & Action>()(immer(stateCreator));
 export default useSearchCommandStore;

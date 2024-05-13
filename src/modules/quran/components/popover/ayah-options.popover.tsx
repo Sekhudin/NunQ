@@ -12,7 +12,7 @@ const CopyIcon = IconXS(Copy, 'hoverPrimary');
 const CopiedIcon = IconXS(CheckCheck, 'success');
 const TafsirIcon = IconXS(MessageSquare, 'hoverPrimary');
 
-const PopoverItem = ({ className, children, ...props }: PropsFrom<typeof Button>) => (
+const ButtonPopoverItem = ({ className, children, ...props }: PropsFrom<typeof Button>) => (
   <Button
     className={cn(
       `size-full flex justify-start font-light gap-x-2 px-2 pr-2 py-1 rounded group`,
@@ -37,33 +37,31 @@ const SettingsPopover = ({
   return (
     <Popover modal={modal}>
       <PopoverTrigger asChild>{children}</PopoverTrigger>
-      <PopoverContent
-        className={cn(`min-w-44 w-fit rounded-xl px-1 py-2 shadow-none`, className)}
-        {...props}>
-        <ul className="grid grid-rows-4 gap-y-1">
+      <PopoverContent className={cn(``, className)} {...props}>
+        <ul className={`grid grid-rows-4 gap-y-1`}>
           <li>
-            <PopoverItem>
+            <ButtonPopoverItem>
               <PlayIcon />
               <span>Putar Ayat</span>
-            </PopoverItem>
+            </ButtonPopoverItem>
           </li>
           <li>
-            <PopoverItem>
+            <ButtonPopoverItem>
               <BookmarkIcon />
               <span>Tandai Terakhir Baca</span>
-            </PopoverItem>
+            </ButtonPopoverItem>
           </li>
           <li>
-            <PopoverItem>
+            <ButtonPopoverItem>
               <TafsirIcon />
               <span>Lihat Tafsir</span>
-            </PopoverItem>
+            </ButtonPopoverItem>
           </li>
           <li>
-            <PopoverItem onClick={copyHandler}>
+            <ButtonPopoverItem onClick={copyHandler}>
               {!isCopied ? <CopyIcon /> : <CopiedIcon />}
               <span>Salin Teks</span>
-            </PopoverItem>
+            </ButtonPopoverItem>
           </li>
         </ul>
       </PopoverContent>

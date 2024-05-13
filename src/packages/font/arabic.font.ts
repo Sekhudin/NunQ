@@ -26,4 +26,6 @@ const arabicSpecial = {
   'surah name': notoNastaliqUrdu,
 };
 
+export type ArabicBodyName = keyof typeof arabicBody;
+
 export { arabicBody, arabicSpecial };

@@ -9,15 +9,18 @@ import helper from 'modules/quran/service/helper.service';
 
 const MoreVerticalIcon = DynamicIconXS(MoreVertical);
 
-const VerseNumber = ({ className, verse }: Props<{ verse: number }>) => (
-  <div className={cn('relative size-10 mx-2', className)}>
+const VerseNumber = ({ className, verse, size }: Props<{ verse: number; size: number }>) => (
+  <div
+    className={cn('relative mx-2', className)}
+    style={{ width: `${size + 4}px`, height: `${size + 4}px` }}>
     <span
-      className={`absolute inset-0 bg-primary/10 dark:bg-foreground/10 border border-primary
-      dark:border-foreground rounded-full`}
+      className={`absolute inset-0 bg-primary/10 dark:bg-foreground/10
+      border border-primary dark:border-foreground rounded-full`}
     />
     <span
-      className={`absolute top-[50%] right-[50%] -translate-x-[-50%]
-      -translate-y-[50%] text-lg text-primary dark:text-foreground`}>
+      className={`absolute top-[50%] right-[50%] -translate-y-[50%] translate-x-1/2
+      leading-none text-primary dark:text-primary-foreground`}
+      style={{ fontSize: `${size - 8}px` }}>
       {helper.convertToArabicNumber(verse)}
     </span>
   </div>
@@ -35,7 +38,7 @@ const VerseContent = ({
   return (
     <div className={cn(`flex gap-x-4 md:gap-x-6`, className)}>
       <div>
-        <AyahOptionsPopover side="bottom" align="start" value={value}>
+        <AyahOptionsPopover side="bottom" align="start" value={value} modal>
           <Button className="p-1.5 rounded-full group" variant="ghost2" size="none">
             <MoreVerticalIcon />
           </Button>
@@ -63,19 +66,26 @@ const VerseContent = ({
 
             return (
               <li className="flex" key={key}>
-                <VerseNumber verse={verse} />
+                <VerseNumber verse={verse} size={settings.arabicFont.size} />
                 {arabic}
               </li>
             );
           })}
         </ul>
 
-        <div className="flex flex-col gap-y-2 mt-8">
-          <span className="block text-primary dark:text-foreground font-semibold">
-            {value.latin}
-          </span>
-          <span className="block dark:font-extralight">{value.translation.id}</span>
-        </div>
+        {(settings.showLatin || settings.showTranslation) && (
+          <div className="flex flex-col gap-y-2 mt-8">
+            {settings.showLatin && (
+              <span className="block text-primary dark:text-foreground font-semibold">
+                {value.latin}
+              </span>
+            )}
+
+            {settings.showTranslation && (
+              <span className="block dark:font-extralight">{value.translation.id}</span>
+            )}
+          </div>
+        )}
       </div>
     </div>
   );

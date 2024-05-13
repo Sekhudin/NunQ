@@ -1,23 +1,30 @@
 import type { StateCreator as SC } from 'zustand';
 import type { PersistOptions as PO } from 'zustand/middleware';
 import type { SurahList } from 'packages/quran-pack';
-import type { arabicBody } from 'packages/font/arabic.font';
+import type { FontArabicName, QoriName } from 'configs/store.config';
 import type { Font } from './global';
 
 namespace QuranSettings {
   export interface State {
     arabicFont: {
+      face: FontArabicName;
       family: Font;
       size: number;
     };
     showLatin: boolean;
     showTranslation: boolean;
+    translation: string;
+    qori: QoriName;
   }
 
   export interface Action {
-    setArabicFontFamily: (name: keyof typeof arabicBody) => void;
+    setArabicFontFamily: (name: FontArabicName) => void;
+    setArabicFontSize: (values: [number]) => void;
     setShowLatin: (show: boolean) => void;
     setShowTranslation: (show: boolean) => void;
+    setTranslation: (lang: string) => void;
+    setQori: (qori: QoriName) => void;
+    reset: () => void;
   }
 
   export interface ActionState extends Action, State {}

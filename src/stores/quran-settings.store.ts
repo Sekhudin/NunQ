@@ -1,26 +1,58 @@
+import { toast } from 'sonner';
 import { create, immer } from 'packages/zustand';
-import { arabicBody } from 'packages/font/arabic.font';
+import { TRANSLATION, FONT_ARABIC } from 'configs/store.config';
 import type { QuranSettings } from 'types/store';
 
-const stateCreator: QuranSettings.StateCreator = (set) => ({
+const DEFAULT_QURAN_SETTINGS: QuranSettings.State = {
   arabicFont: {
-    family: arabicBody['amiri'],
+    face: 'amiri',
+    family: FONT_ARABIC['amiri'],
     size: 32,
   },
-  setArabicFontFamily: (name) =>
-    set((state) => {
-      state.arabicFont.family = arabicBody[name];
-    }),
   showLatin: true,
+  showTranslation: true,
+  translation: TRANSLATION.ID,
+  qori: 'Mishari Alafasy',
+};
+
+const stateCreator: QuranSettings.StateCreator = (set) => ({
+  ...DEFAULT_QURAN_SETTINGS,
+  setArabicFontFamily: (name) => {
+    set((state) => {
+      state.arabicFont.face = name;
+      state.arabicFont.family = FONT_ARABIC[name];
+    });
+  },
+  setArabicFontSize: ([size]) => {
+    set((state) => {
+      state.arabicFont.size = size;
+    });
+  },
   setShowLatin: (show) => {
     set((state) => {
       state.showLatin = show;
     });
   },
-  showTranslation: true,
   setShowTranslation: (show) => {
     set((state) => {
       state.showTranslation = show;
+    });
+  },
+  setTranslation: (lang: string) => {
+    if (!lang) return;
+    set((state) => {
+      state.translation = lang;
+    });
+  },
+  setQori: (qori) => {
+    toast.warning('Unavailable', { description: 'Fitur qori belum tersedia.' });
+    set((state) => {
+      state.qori = qori;
+    });
+  },
+  reset: () => {
+    set((state) => {
+      Object.assign(state, DEFAULT_QURAN_SETTINGS);
     });
   },
 });

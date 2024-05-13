@@ -11,7 +11,7 @@ const SurahVerseSection = ({ className, params }: Props<WithParams<'surah_number
   const surah = service.init(Number(params.surah_number));
   const verses = surah.verses();
 
-  const settings = useQuranSettingsStore((state) => state);
+  const settingsStore = useQuranSettingsStore((state) => state);
   const location = useLocationHash((_, value) => {
     if (value === '') return;
     if (Number(value) < 1 || Number(value) > surah.numberOfVerse) {
@@ -36,7 +36,7 @@ const SurahVerseSection = ({ className, params }: Props<WithParams<'surah_number
             className="px-6 py-16"
             verse={verse}
             value={surah.getVerse(verse)}
-            settings={settings}
+            settings={settingsStore}
           />
           <Separator />
         </section>
