@@ -1,12 +1,14 @@
-import { mainContainerClass } from 'components/HOCs/container.hoc';
+import { mainContainerClass, containerClass } from 'components/HOCs/container.hoc';
 import { cn } from 'packages/utils/cn';
 import QuranNavigation from './components/semantic/quran.nav';
 import SpecialSurahList from './components/semantic/special-surah.ul';
 import SurahList from './components/semantic/surah.ul';
+import QuranicCarousel from './components/carousel/quranic.carousel';
 
 const QuranPage = () => {
   return (
     <main>
+      <QuranicCarousel className={cn(containerClass)} />
       <QuranNavigation />
       <div className={cn(mainContainerClass, 'py-8')}>
         <SpecialSurahList />

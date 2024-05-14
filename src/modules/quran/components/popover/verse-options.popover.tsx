@@ -24,7 +24,7 @@ const ButtonPopoverItem = ({ className, children, ...props }: PropsFrom<typeof B
   </Button>
 );
 
-const SettingsPopover = ({
+const VerseOptionsPopover = ({
   className,
   children,
   modal,
@@ -69,4 +69,4 @@ const SettingsPopover = ({
   );
 };
 
-export default SettingsPopover;
+export default VerseOptionsPopover;

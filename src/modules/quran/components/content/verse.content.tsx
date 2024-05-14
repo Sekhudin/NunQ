@@ -4,7 +4,7 @@ import { Button } from 'packages/ui/button';
 import { cn, Props } from 'packages/utils/cn';
 import type { SurahVerse } from 'packages/quran-pack/quran.types';
 import type { QuranSettings } from 'types/store';
-import AyahOptionsPopover from 'modules/quran/components/popover/ayah-options.popover';
+import VerseOptionsPopover from 'modules/quran/components/popover/verse-options.popover';
 import helper from 'modules/quran/service/helper.service';
 
 const MoreVerticalIcon = DynamicIconXS(MoreVertical);
@@ -38,11 +38,11 @@ const VerseContent = ({
   return (
     <div className={cn(`flex gap-x-4 md:gap-x-6`, className)}>
       <div>
-        <AyahOptionsPopover side="bottom" align="start" value={value} modal>
+        <VerseOptionsPopover side="bottom" align="start" value={value} modal>
           <Button className="p-1.5 rounded-full group" variant="ghost2" size="none">
             <MoreVerticalIcon />
           </Button>
-        </AyahOptionsPopover>
+        </VerseOptionsPopover>
       </div>
 
       <div className="flex-grow">

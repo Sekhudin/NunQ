@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { mainContainerClass } from 'components/HOCs/container.hoc';
 import { cn } from 'packages/utils/cn';
 import SurahNavigation from './components/semantic/surah.nav';

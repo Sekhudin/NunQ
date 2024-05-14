@@ -11,7 +11,7 @@ const QuranNavigation = ({ className }: Props) => {
   return (
     <nav className={cn(`bg_navigation sticky top-0`, className)}>
       <ul
-        className={cn(`flex items-center justify-around py-4 md:py-6 rounded-xl`, containerClass)}>
+        className={cn(`flex items-center justify-around py-4 md:py-6`, containerClass)}>
         <li>
           <AlQuranNavItem href={'/quran'} />
         </li>

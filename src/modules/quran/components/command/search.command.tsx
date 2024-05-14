@@ -23,8 +23,8 @@ import useSearchCommandStore from './search.command.store';
 import helper from 'modules/quran/service/helper.service';
 
 const SearchIcon = DynamicIconMD(Search);
-const FileIcon = IconXS(File);
-const FileHeartIcon = IconXS(FileHeart);
+const FileIcon = IconXS(File, 'inherit');
+const FileHeartIcon = IconXS(FileHeart, 'inherit');
 const AtSignIcon = IconSM(AtSign);
 
 const SearchCommand = ({ className }: Props) => {
@@ -75,7 +75,7 @@ const SearchCommand = ({ className }: Props) => {
                   {searchesStore.recents.map((recent, key) => (
                     <div className="relative flex" key={key}>
                       <CommandItem
-                        className="w-full"
+                        className="w-full group"
                         value={recent.href}
                         keywords={recent.keywords}
                         onSelect={state.commandItemOnSelect((href) => {
@@ -101,7 +101,7 @@ const SearchCommand = ({ className }: Props) => {
                   {searchesStore.favorites.map((favorite, key) => (
                     <div className="relative flex" key={key}>
                       <CommandItem
-                        className="w-full"
+                        className="w-full group"
                         value={favorite.href}
                         keywords={favorite.keywords}
                         onSelect={state.commandItemOnSelect((href) => {
@@ -128,13 +128,14 @@ const SearchCommand = ({ className }: Props) => {
                   {state.links.map((link, key) => (
                     <NextLink key={key} href={link.href}>
                       <CommandItem
+                        className="group"
                         key={key}
                         value={link.href}
                         keywords={link.keywords}
                         onSelect={state.commandItemOnSelect((href) => {
                           router.push(href);
                         })}>
-                        <FileIcon />
+                        <FileIcon className='stroke-inherit dark:stroke-inherit' />
                         <span>{link.name}</span>
                       </CommandItem>
                     </NextLink>
@@ -147,6 +148,7 @@ const SearchCommand = ({ className }: Props) => {
                   {state.surahList.map((surah, key) => (
                     <NextLink key={key} href={helper.hrefSurah(surah.number)}>
                       <CommandItem
+                        className="group"
                         key={key}
                         value={helper.hrefSurah(surah.number)}
                         keywords={[`@${surah.name_id}`]}

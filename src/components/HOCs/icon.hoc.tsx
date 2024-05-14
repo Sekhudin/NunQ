@@ -20,6 +20,7 @@ const variantType = {
   hoverPrimary: `${strokeBase} hover:stroke-primary group-hover:stroke-primary`,
   primary: `stroke-primary`,
   success: `stroke-green-600 dark:stroke-green-600`,
+  inherit: `stroke-inherit group-hover:stroke-inherit dark:stroke-inherite dark:group-hover:stroke-inherit`,
   disabled: `stroke-zinc-400 dark:stroke-zinc-600`,
   ratingOn: `stroke-yellow-500 dark:stroke-yellow-500 fill-yellow-500`,
   ratingOff: `hover:stroke-yellow-500 hover:fill-yellow-500`,
