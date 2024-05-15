@@ -5,6 +5,6 @@ export type AvailableLink = {
 };
 
 export const availableLinks: AvailableLink[] = [
-  { name: 'API Docs', href: '/api', keywords: ['api', 'docs', 'documentation'] },
+  { name: 'API Docs', href: '/api/docs', keywords: ['api', 'docs', 'documentation'] },
   { name: 'Quran', href: '/quran', keywords: ['quran', 'surah'] },
 ];

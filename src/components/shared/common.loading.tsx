@@ -1,11 +1,9 @@
-import LoadingContainer from 'components/containers/loading.container';
-
 const Loading = () => {
   return (
-    <LoadingContainer>
+    <div>
       <span>Image</span>
       <span>Common Loading</span>
-    </LoadingContainer>
+    </div>
   );
 };
 

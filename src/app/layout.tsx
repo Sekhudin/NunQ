@@ -1,4 +1,4 @@
-import RootLayout from 'packages/components/layouts/root.layout';
+import RootLayout from 'components/shared/root.layout';
 import { withMetadata } from 'packages/utils/metadata';
 import 'styles/globals.css';
 

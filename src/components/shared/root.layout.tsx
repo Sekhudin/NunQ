@@ -1,5 +1,5 @@
 import { Toaster } from 'packages/ui/sonner';
-import ThemeProvider from 'packages/components/providers/theme.provider';
+import ThemeProvider from 'components/providers/theme.provider';
 import { cn } from 'packages/utils/cn';
 import { inter } from 'packages/font/base.font';
 import type { NextLayoutProps } from 'types/global';

@@ -1,0 +1,119 @@
+@import url('swagger-ui-react/swagger-ui.css');
+
+.swagger-ui {
+  @apply min-h-dvh container max-w-5xl 2xl:max-w-4xl px-6 py-14;
+}
+
+.swagger-ui *,
+.swagger-ui h4,
+.swagger-ui .headers-wrapper .header-col,
+.swagger-ui .parameters-container p {
+  @apply text-zinc-800 dark:text-zinc-200;
+}
+
+.swagger-ui .opblock-summary-description,
+.swagger-ui .opblock-description p,
+.swagger-ui .model-example button.tablinks {
+  @apply text-zinc-800 dark:text-zinc-200 dark:font-light;
+}
+
+.swagger-ui .hljs-attr,
+.swagger-ui .language-json,
+.swagger-ui .language-json span {
+  @apply text-zinc-100 dark:text-zinc-200;
+}
+
+.swagger-ui input,
+.swagger-ui select {
+  @apply bg-background dark:bg-zinc-700 focus-visible:outline-none focus-visible:border-blue-500
+  dark:focus-visible:border-blue-500 placeholder:text-foreground/50 shadow-none rounded-lg !important;
+}
+
+.swagger-ui pre,
+.swagger-ui pre.example.microlight {
+  @apply bg-zinc-900 dark:bg-zinc-900 !important;
+}
+
+.swagger-ui button {
+  @apply rounded-lg focus:outline-0 !important;
+}
+
+.swagger-ui .btn {
+  @apply shadow-none !important;
+}
+
+.swagger-ui button.btn.try-out__btn {
+  @apply border-blue-500 text-blue-600;
+}
+
+.swagger-ui button.btn.try-out__btn.cancel {
+  @apply border-red-500 text-red-500;
+}
+
+.swagger-ui button.btn.execute {
+  @apply bg-blue-500 text-primary-foreground border-none hover:bg-opacity-90 shadow-none !important;
+}
+
+.swagger-ui .wrapper {
+  @apply px-0;
+}
+
+.swagger-ui .information-container {
+  @apply hidden;
+}
+
+.swagger-ui .scheme-container {
+  @apply bg-background dark:bg-zinc-800 text-foreground mt-14 shadow-none px-4 rounded-xl;
+}
+
+.swagger-ui .opblock {
+  @apply shadow-none rounded-xl;
+}
+
+.swagger-ui .opblock-tag-section {
+  @apply bg-background dark:bg-zinc-800 mb-4 rounded-xl overflow-hidden;
+}
+
+.swagger-ui .opblock-tag-section .no-margin {
+  @apply px-4;
+}
+
+.swagger-ui .opblock-tag {
+  @apply border-b-0 mb-0 px-4;
+}
+
+.swagger-ui .opblock .opblock-summary-method,
+.swagger-ui .opblock .opblock-summary-control:focus {
+  @apply rounded-lg;
+}
+
+.swagger-ui .opblock .opblock-summary-method {
+  @apply text-zinc-200 dark:text-primary-foreground;
+}
+
+.swagger-ui .opblock .opblock-section-header {
+  @apply bg-transparent font-semibold
+  px-2 py-2 mt-2 shadow-none rounded-xl;
+}
+
+.swagger-ui .opblock .opblock-section-header h4 {
+  @apply text-zinc-800 dark:text-zinc-200 font-semibold;
+}
+
+.swagger-ui section.models,
+.swagger-ui section.models.is-open {
+  @apply bg-background dark:bg-zinc-800 rounded-xl border-border !important;
+}
+
+.swagger-ui section.models h4,
+.swagger-ui section.models.is-open h4 {
+  @apply font-semibold px-4 mb-0;
+}
+
+.swagger-ui section.models.is-open .model-container {
+  @apply dark:bg-zinc-700/50 rounded-lg;
+}
+
+.swagger-ui section.models.is-open .no-margin {
+  @apply px-0;
+}
