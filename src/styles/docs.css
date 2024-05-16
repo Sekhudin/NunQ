@@ -147,7 +147,7 @@
 }
 
 .swagger-ui .dialog-ux .modal-ux .auth-btn-wrapper {
-  @apply gap-x-2;
+  @apply gap-x-2 my-4;
 }
 
 .swagger-ui button.close-modal svg {
