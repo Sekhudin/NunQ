@@ -80,7 +80,7 @@
 }
 
 .swagger-ui .opblock-tag-section .no-margin {
-  @apply px-4;
+  @apply relative px-4 overflow-x-scroll md:overflow-x-hidden;
 }
 
 .swagger-ui .opblock-tag {
@@ -117,9 +117,28 @@
 }
 
 .swagger-ui section.models.is-open .model-container {
-  @apply dark:bg-zinc-700/50 rounded-lg;
+  @apply relative dark:bg-zinc-700/50 rounded-lg overflow-x-scroll md:overflow-x-hidden;
 }
 
 .swagger-ui section.models.is-open .no-margin {
   @apply px-0;
+}
+
+.swagger-ui .dialog-ux .modal-ux {
+  @apply bg-background dark:bg-zinc-900;
+}
+
+.swagger-ui .dialog-ux .modal-ux h2,
+.swagger-ui .dialog-ux .modal-ux h3,
+.swagger-ui .dialog-ux .modal-ux h4,
+.swagger-ui .dialog-ux .modal-ux p {
+  @apply text-zinc-800 dark:text-zinc-200;
+}
+
+.swagger-ui .dialog-ux .modal-ux .auth-btn-wrapper {
+  @apply gap-x-2;
+}
+
+.swagger-ui button.close-modal svg {
+  @apply stroke-red-500 dark:stroke-red-500 fill-red-500 dark:fill-red-500;
 }
