@@ -125,7 +125,18 @@
 }
 
 .swagger-ui .dialog-ux .modal-ux {
-  @apply bg-background dark:bg-zinc-900;
+  @apply bg-background dark:bg-zinc-900 max-h-[80vh] max-w-[90dvw] p-0 rounded-xl;
+}
+
+.swagger-ui .dialog-ux .modal-ux .modal-ux-inner,
+.swagger-ui .dialog-ux .modal-ux .modal-ux-header,
+.swagger-ui .dialog-ux .modal-ux .modal-ux-content {
+  @apply p-2;
+}
+
+.swagger-ui .dialog-ux .modal-ux div,
+.swagger-ui .dialog-ux .modal-ux h3 {
+  @apply p-0;
 }
 
 .swagger-ui .dialog-ux .modal-ux h2,
