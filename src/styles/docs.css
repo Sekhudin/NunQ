@@ -24,6 +24,7 @@
 }
 
 .swagger-ui input,
+.swagger-ui textarea,
 .swagger-ui select {
   @apply bg-background dark:bg-zinc-700 focus-visible:outline-none focus-visible:border-blue-500
   dark:focus-visible:border-blue-500 placeholder:text-foreground/50 shadow-none rounded-lg !important;
@@ -52,6 +53,10 @@
 
 .swagger-ui button.btn.execute {
   @apply bg-blue-500 text-primary-foreground border-none hover:bg-opacity-90 shadow-none !important;
+}
+
+.swagger-ui div.btn-group {
+  @apply gap-x-2;
 }
 
 .swagger-ui .wrapper {
@@ -96,7 +101,8 @@
   px-2 py-2 mt-2 shadow-none rounded-xl;
 }
 
-.swagger-ui .opblock .opblock-section-header h4 {
+.swagger-ui .opblock .opblock-section-header h4,
+.swagger-ui .response h5 {
   @apply text-zinc-800 dark:text-zinc-200 font-semibold;
 }
 
