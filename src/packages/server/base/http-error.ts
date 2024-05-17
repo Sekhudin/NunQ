@@ -2,7 +2,7 @@
 import { z } from 'zod';
 import { NextResponse } from 'next/server';
 import { Code, Message } from 'configs/response.config';
-import type { HttpResponse } from 'types/global';
+import type { HttpResponse } from 'types/api';
 
 class HttpError<T = any, E = string[]> extends Error {
   constructor(code: number, errors: E, message: string, payload?: T) {

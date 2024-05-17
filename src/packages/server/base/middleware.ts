@@ -1,4 +1,4 @@
-import type { ApiHandler } from 'types/global';
+import type { ApiHandler } from 'types/api';
 
 type Extra = {
   params: Record<string, string>;

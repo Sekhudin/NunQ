@@ -1,4 +1,3 @@
-import type { NextResponse } from 'next/server';
 import type { NextFont, NextFontWithVariable } from 'next/dist/compiled/@next/font';
 import React from 'react';
 
@@ -36,18 +35,3 @@ export type PageParams<T extends string = string> = {
 };
 
 export type Font = NextFont | NextFontWithVariable;
-
-export interface HttpResponse<
-  T extends Record<string, any> | null = Record<string, any>,
-  E extends string[] | null = string[]
-> {
-  code: number;
-  message: string;
-  data: T;
-  errors: E;
-}
-
-export type ApiHandler<T extends string | null> = (
-  req: Request,
-  extra: { params: T extends string ? Record<T, string> : undefined }
-) => Promise<NextResponse<HttpResponse<Record<string, any> | null, string[] | null>>>;

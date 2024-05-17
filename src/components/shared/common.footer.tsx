@@ -1,5 +1,6 @@
-import { containerClass, MainFooter } from 'components/HOCs/container.hoc';
-import * as config from 'configs/env.config';
+import { Separator } from 'packages/ui/separator';
+import { MainFooter } from 'components/HOCs/container.hoc';
+import { PUBLIC_APP } from 'configs/env.config';
 import { cn, Props } from 'packages/utils/cn';
 
 const Content = () => {
@@ -11,7 +12,8 @@ const Content = () => {
       <div className="invisible">Common Footer</div>
       <div className="flex items-center gap-x-1 text-xs md:text-sm">
         <span>{year}</span>
-        <span className="font-semibold">{config.APP_NAME}</span>
+        <span className="font-semibold">{PUBLIC_APP.name}</span>
+        <Separator className='min-h-4 mx-2' orientation='vertical' />
         <span>All rights reserved</span>
       </div>
     </>

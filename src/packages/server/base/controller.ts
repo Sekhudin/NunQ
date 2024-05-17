@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import HttpError from 'packages/server/base/http-error';
 import { Code, Message } from 'configs/response.config';
-import type { HttpResponse, ApiHandler } from 'types/global';
+import type { HttpResponse, ApiHandler } from 'types/api';
 
 abstract class Controller {
   protected res = NextResponse;

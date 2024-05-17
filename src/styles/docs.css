@@ -30,9 +30,13 @@
   dark:focus-visible:border-blue-500 placeholder:text-foreground/50 shadow-none rounded-lg !important;
 }
 
-.swagger-ui pre,
-.swagger-ui pre.example.microlight {
+.swagger-ui pre {
   @apply bg-zinc-900 dark:bg-zinc-900 !important;
+}
+
+.swagger-ui pre span.headerline,
+.swagger-ui pre code.language-bash span {
+  @apply text-zinc-100 dark:text-zinc-200 !important;
 }
 
 .swagger-ui button {
@@ -63,12 +67,36 @@
   @apply px-0;
 }
 
-.swagger-ui .information-container {
-  @apply hidden;
+.swagger-ui .information-container .info {
+  @apply mb-0 mt-0 md:mt-10;
+}
+
+.swagger-ui .information-container h2 {
+  @apply text-zinc-800 dark:text-zinc-200 font-semibold;
+}
+
+.swagger-ui .information-container p {
+  @apply text-zinc-800 dark:text-zinc-200 text-base text-justify;
+}
+
+.swagger-ui .information-container pre {
+  @apply bg-transparent !important;
+}
+
+.swagger-ui .information-container pre.base-url {
+  @apply text-zinc-800 dark:text-zinc-200;
+}
+
+.swagger-ui .information-container a {
+  @apply text-blue-500;
+}
+
+.swagger-ui .information-container code {
+  @apply px-2 py-0.5 rounded-lg;
 }
 
 .swagger-ui .scheme-container {
-  @apply bg-background dark:bg-zinc-800 text-foreground mt-14 shadow-none px-4 rounded-xl;
+  @apply bg-background dark:bg-zinc-800 text-foreground px-4 my-4 shadow-none rounded-xl;
 }
 
 .swagger-ui .opblock {
@@ -125,7 +153,7 @@
 }
 
 .swagger-ui .dialog-ux .modal-ux {
-  @apply bg-background dark:bg-zinc-900 max-h-[80vh] max-w-[90dvw] p-0 rounded-xl;
+  @apply bg-background dark:bg-zinc-900 w-[90dvw] md:w-fit max-h-[80vh] max-w-[90dvw] p-0 rounded-xl;
 }
 
 .swagger-ui .dialog-ux .modal-ux .modal-ux-inner,
