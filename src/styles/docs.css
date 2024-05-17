@@ -68,7 +68,7 @@
 }
 
 .swagger-ui .information-container .info {
-  @apply mb-0 mt-0 md:mt-10;
+  @apply mb-0 mt-5 md:mt-14;
 }
 
 .swagger-ui .information-container h2 {
