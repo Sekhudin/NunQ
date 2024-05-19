@@ -45,12 +45,15 @@ const stateCreator: QuranSettings.StateCreator = (set) => ({
     });
   },
   setQori: (qori) => {
-    toast.warning('Unavailable', { description: 'Fitur qori belum tersedia.' });
+    toast.warning('Qori Tidak Tersedia', { description: 'Fitur qori belum tersedia.' });
     set((state) => {
       state.qori = qori;
     });
   },
   reset: () => {
+    toast.success('Reset Berhasil', {
+      description: 'Pengaturan telah dikembalikan ke keadaan awal.',
+    });
     set((state) => {
       Object.assign(state, DEFAULT_QURAN_SETTINGS);
     });

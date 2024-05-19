@@ -1,3 +1,3 @@
-import Page from 'modules/base/base.page';
+import Page from 'modules/home/home.page';
 
 export default Page;

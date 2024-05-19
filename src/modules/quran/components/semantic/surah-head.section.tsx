@@ -1,14 +1,11 @@
 import { NextImage } from 'packages/ui/next-image';
-import { cn, Props, WithParams } from 'packages/utils/cn';
+import { cn, Props } from 'packages/utils/cn';
+import type { SurahList } from 'packages/quran-pack/quran.types';
 import { BismillahPNG } from 'packages/public/png';
 import { arabicSpecial } from 'packages/font/arabic.font';
 import service from 'modules/quran/service/quran.service';
 
-const SurahHeadSection = ({ className, params }: Props<WithParams<'surah_number'>>) => {
-  const surah = service.findSurahByNumber(Number(params.surah_number));
-
-  if (!surah) return null;
-
+const SurahHeadSection = ({ className, value }: Props<{ value: SurahList[number] }>) => {
   return (
     <section className={cn(`flex flex-col items-center py-12`, className)}>
       <span
@@ -17,17 +14,17 @@ const SurahHeadSection = ({ className, params }: Props<WithParams<'surah_number'
           tracking-[-0.08em]`
         )}
         style={{ ...arabicSpecial['surah name'].style }}>
-        {service.withSurah(surah.name)}
+        {service.withSurah(value.name)}
       </span>
 
       <span className="flex-col items-center justify-center text-center pt-4 pb-12">
-        <span className="block text-xl font-bold">{surah.name_id}</span>
+        <span className="block text-xl font-bold">{value.name_id}</span>
         <span className="block text-sm font-light">
-          {`${surah.category} . ${surah.number_of_verse}`}
+          {`${value.category} . ${value.number_of_verse}`}
         </span>
       </span>
 
-      {service.isWithBismillah(params.surah_number) ? (
+      {service.isWithBismillah(value.number) ? (
         <NextImage
           className={`size-fit max-w-72 dark:invert opacity-70 dark:opacity-85 select-none
           pointer-events-none contrast-200`}

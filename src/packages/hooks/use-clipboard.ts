@@ -12,7 +12,7 @@ function useClipboard(value: string | number, delay = 1500): [boolean, () => voi
   const copyHandler = React.useCallback(() => {
     if (isCopied) return;
     navigator.clipboard.writeText(value.toString());
-    const toastID = toast.success('Coppied', { description: 'Teks berhasil disalin.' });
+    const toastID = toast.success('Teks Disalin', { description: 'Teks berhasil disalin.' });
     setCopied(true);
     setTimeout(() => {
       toast.dismiss(toastID);

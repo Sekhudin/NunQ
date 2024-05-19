@@ -8,11 +8,10 @@ import VerseOptionsPopover from 'modules/quran/components/popover/verse-options.
 import helper from 'modules/quran/service/helper.service';
 
 const MoreVerticalIcon = DynamicIconXS(MoreVertical);
-
 const VerseNumber = ({ className, verse, size }: Props<{ verse: number; size: number }>) => (
   <div
-    className={cn('relative mx-2', className)}
-    style={{ width: `${size + 4}px`, height: `${size + 4}px` }}>
+    className={cn('relative mx-3', className)}
+    style={{ width: `${size + 6}px`, height: `${size + 6}px` }}>
     <span
       className={`absolute inset-0 bg-primary/10 dark:bg-foreground/10
       border border-primary dark:border-foreground rounded-full`}
@@ -20,7 +19,7 @@ const VerseNumber = ({ className, verse, size }: Props<{ verse: number; size: nu
     <span
       className={`absolute top-[50%] right-[50%] -translate-y-[50%] translate-x-1/2
       leading-none text-primary dark:text-primary-foreground`}
-      style={{ fontSize: `${size - 8}px` }}>
+      style={{ fontSize: `${size - 14}px` }}>
       {helper.convertToArabicNumber(verse)}
     </span>
   </div>

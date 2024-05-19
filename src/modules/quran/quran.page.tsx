@@ -8,7 +8,7 @@ import QuranicCarousel from './components/carousel/quranic.carousel';
 const QuranPage = () => {
   return (
     <main>
-      <QuranicCarousel className={cn(containerClass)} />
+      <QuranicCarousel className={cn(containerClass)} slides={[1, 2, 3, 4]} />
       <QuranNavigation />
       <div className={cn(mainContainerClass, 'py-8')}>
         <SpecialSurahList />

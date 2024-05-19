@@ -15,7 +15,7 @@ const NextLink = ({
   const onClickHandler: onLinkClicked | undefined = disabled
     ? (ev: React.MouseEvent<HTMLAnchorElement>) => {
         ev.preventDefault();
-        toast.error('unavailable link', { description: 'Fitur belum tersedia.' });
+        toast.warning('Link Tidak Tersedia', { description: 'Fitur belum tersedia.' });
       }
     : props.onClick;
 
@@ -46,7 +46,7 @@ const NextLinkButton = ({
   const onClickHandler: onLinkClicked | undefined = disabled
     ? (ev: React.MouseEvent<HTMLAnchorElement>) => {
         ev.preventDefault();
-        toast.error('unavailable link', { description: 'Fitur belum tersedia.' });
+        toast.warning('Link Tidak Tersedia', { description: 'Fitur belum tersedia.' });
       }
     : props.onClick;
 
