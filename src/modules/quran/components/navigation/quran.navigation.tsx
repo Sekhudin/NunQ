@@ -7,7 +7,7 @@ const AlQuranNavItem = NavItem(NavIconItem(QuranIconPNG, 'al-quran'), 'Al-Quran'
 const YasinTahlilNavItem = NavItem(NavIconItem(PrayingIconPNG, 'yasin & tahlil'), 'Yasin & Tahlil');
 const WiridDoaNavItem = NavItem(NavIconItem(TasbihIconPNG, 'wirid & doa'), 'Wirid & doa');
 const MaulidNavItem = NavItem(NavIconItem(PoleIconPNG, 'maulid'), 'Maulid');
-const QuranNavigation = ({ className }: Props) => {
+const QuranNavigation = ({ className, }: Props) => {
   return (
     <nav className={cn(`bg_navigation sticky top-0`, className)}>
       <ul className={cn(`flex items-center justify-around pt-3 pb-2`, containerClass)}>

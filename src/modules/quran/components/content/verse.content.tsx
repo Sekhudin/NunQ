@@ -1,5 +1,7 @@
+'use client';
+import React from 'react';
 import { MoreVertical } from 'lucide-react';
-import { DynamicIconXS } from 'components/HOCs/icon.hoc';
+import { DynamicIconSM } from 'components/HOCs/icon.hoc';
 import { Button } from 'packages/ui/button';
 import { cn, Props } from 'packages/utils/cn';
 import type { SurahVerse } from 'packages/quran-pack/quran.types';
@@ -7,7 +9,7 @@ import type { QuranSettings } from 'types/store';
 import VerseOptionsPopover from 'modules/quran/components/popover/verse-options.popover';
 import helper from 'modules/quran/service/helper.service';
 
-const MoreVerticalIcon = DynamicIconXS(MoreVertical);
+const MoreVerticalIcon = DynamicIconSM(MoreVertical);
 const VerseNumber = ({ className, verse, size }: Props<{ verse: number; size: number }>) => (
   <div
     className={cn('relative mx-3', className)}
@@ -37,8 +39,8 @@ const VerseContent = ({
   return (
     <div className={cn(`flex gap-x-4 md:gap-x-6`, className)}>
       <div>
-        <VerseOptionsPopover side="bottom" align="start" value={value} modal>
-          <Button className="p-1.5 rounded-full group" variant="ghost2" size="none">
+        <VerseOptionsPopover side="bottom" align="start" value={value}>
+          <Button className="absolute top-5 p-1.5 rounded-full group" variant="ghost" size="none">
             <MoreVerticalIcon />
           </Button>
         </VerseOptionsPopover>
@@ -50,10 +52,12 @@ const VerseContent = ({
             `flex flex-wrap flex-row-reverse justify-start items-center gap-x-1 gap-y-8
             font-bold`
           )}
-          style={{
-            fontSize: `${settings.arabicFont.size}px`,
-            ...settings.arabicFont.family.style,
-          }}>
+          style={
+            {
+              fontSize: `${settings.arabicFont.size}px`,
+              ...settings.arabicFont.family.style,
+            }
+          }>
           {versePerWords.map((arabic, key) => {
             if (!isLastIndex(key)) {
               return (

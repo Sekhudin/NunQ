@@ -1,3 +1,3 @@
 export default function Loading(){
-  return <>surah loading</>
+  return <>A</>
 }

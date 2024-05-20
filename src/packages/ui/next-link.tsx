@@ -31,6 +31,7 @@ const NextLink = ({
         className
       )}
       onClick={onClickHandler}
+      prefetch={false}
       {...props}
     />
   );
@@ -59,6 +60,7 @@ const NextLinkButton = ({
           : ''
       )}
       onClick={onClickHandler}
+      prefetch={false}
       {...props}
     />
   );

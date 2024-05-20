@@ -6,13 +6,20 @@ interface Args extends IntersectionObserverInit {
   freezeOnceVisible?: boolean;
 }
 
+const defaultArgs: Args = {
+  threshold: 0,
+  root: null,
+  rootMargin: '0%',
+  freezeOnceVisible: false,
+};
+
 /**
  * custom hooks to handle Intersection Observer
  * @param ref - ref element to listen
  * @param args - intersection observer args
  */
-function useIntersectionObserver(ref: React.RefObject<Element>, args: Args) {
-  const { threshold = 0, root = null, rootMargin = '0%', freezeOnceVisible = false } = args;
+function useIntersectionObserver(ref: React.RefObject<Element>, args: Args = defaultArgs) {
+  const { threshold, root, rootMargin, freezeOnceVisible } = args;
   const [entry, setEntry] = React.useState<IntersectionObserverEntry>();
   const frozen = entry?.isIntersecting && freezeOnceVisible;
 

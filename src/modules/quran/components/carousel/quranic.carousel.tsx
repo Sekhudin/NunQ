@@ -1,20 +1,10 @@
 'use client';
 import * as React from 'react';
-import Autoplay from 'embla-carousel-autoplay';
+import { containerClass } from 'components/HOCs/container.hoc';
 import { Carousel, CarouselContent, CarouselItem, CarouselApi } from 'packages/ui/carousel';
+import { Autoplay, AutoplayOptions } from 'packages/ui/carousel-plugin';
 import { cn, Props } from 'packages/utils/cn';
 import useUpdated from 'packages/hooks/use-updated';
-
-type AutoplayOptions = Partial<{
-  delay: number;
-  jump: boolean;
-  playOnInit: boolean;
-  stopOnFocusIn: boolean;
-  stopOnInteraction: boolean;
-  stopOnMouseEnter: boolean;
-  stopOnLastSnap: boolean;
-  rootNode: ((emblaRoot: HTMLElement) => HTMLElement | null) | null;
-}>;
 
 const playOptions: AutoplayOptions = {
   delay: 2000,
@@ -23,7 +13,8 @@ const playOptions: AutoplayOptions = {
   stopOnFocusIn: false,
 };
 
-const QuranicCarousel = ({ className, slides }: Props<{ slides: any[] }>) => {
+const QuranicCarousel = ({ className }: Props) => {
+  const slides = [1, 2, 3, 4];
   const slidesIndexes = Object.keys(slides);
   const [current, setCurrent] = React.useState(0);
   const [api, setApi] = React.useState<CarouselApi>();
@@ -44,7 +35,7 @@ const QuranicCarousel = ({ className, slides }: Props<{ slides: any[] }>) => {
   }, [api]);
 
   return (
-    <section className={cn(`relative pt-6 md:pt-8`, className)}>
+    <section className={cn(`relative pt-6 md:pt-8`, containerClass, className)}>
       <Carousel
         className="w-full h-fit"
         setApi={setApi}

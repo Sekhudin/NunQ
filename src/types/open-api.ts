@@ -2,23 +2,24 @@ export namespace OpenAPIV2 {
   export interface Document<
     TPath extends string = string,
     TTag extends string = string,
+    TModelName extends string = string,
     Extensible extends {} = {}
   > {
     basePath?: string;
     consumes?: Consume[] | string[];
-    definitions?: DefinitionsObject;
+    definitions?: DefinitionsObject<TModelName>;
     externalDocs?: ExternalDocumentationObject;
     host?: string;
     info: InfoObject;
     parameters?: ParametersDefinitionsObject;
-    paths: PathsObject<TPath, TTag, string, Extensible>;
+    paths: PathsObject<TPath, TTag, TModelName, Extensible>;
     produces?: Produce[] | string[];
     responses?: ResponsesDefinitionsObject;
     schemes?: Scheme[] | string[];
     security?: SecurityRequirementObject[];
     securityDefinitions?: SecurityDefinitionsObject;
     swagger: string;
-    tags?: TagObject[];
+    tags?: TagObject<TTag>[];
     'x-express-openapi-additional-middleware'?: (
       | ((request: any, response: any, next: any) => Promise<void>)
       | ((request: any, response: any, next: any) => void)
@@ -37,7 +38,15 @@ export namespace OpenAPIV2 {
     | 'default'
     | 'success'
     | 'error';
-  export type Type = 'string' | 'integer' | 'numeric' | 'boolean' | 'object' | 'array' | 'null' | 'file';
+  export type Type =
+    | 'string'
+    | 'integer'
+    | 'numeric'
+    | 'boolean'
+    | 'object'
+    | 'array'
+    | 'null'
+    | 'file';
   export type Format = 'date-time' | 'int-32' | 'int-64';
 
   export type Consume =

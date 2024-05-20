@@ -19,5 +19,4 @@ class ApiQuranService {
 }
 
 const service = new ApiQuranService();
-export type * from 'packages/quran-pack/quran.types';
 export default service;

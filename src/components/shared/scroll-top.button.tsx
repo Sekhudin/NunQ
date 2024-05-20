@@ -1,12 +1,12 @@
 'use client';
 import React from 'react';
 import { ArrowUpToLine } from 'lucide-react';
-import { DynamicIconSM } from 'components/HOCs/icon.hoc';
+import { DynamicIconMD } from 'components/HOCs/icon.hoc';
 import { Button } from 'packages/ui/button';
 import { cn, Props } from 'packages/utils/cn';
 import useMounted from 'packages/hooks/use-mounted';
 
-const ArrowUpToLineIcon = DynamicIconSM(ArrowUpToLine);
+const ArrowUpToLineIcon = DynamicIconMD(ArrowUpToLine);
 const ScrollTopFloatButton = ({ className }: Props) => {
   const btnRef = React.useRef<HTMLButtonElement>(null);
 
@@ -39,7 +39,7 @@ const ScrollTopFloatButton = ({ className }: Props) => {
     <>
       <Button
         className={cn(
-          'size-10 justify-center items-center p-2 rounded-full group hidden',
+          'size-12 justify-center items-center p-2 rounded-full group hidden',
           className
         )}
         ref={btnRef}

@@ -1,3 +1,3 @@
-import page from 'modules/quran/surah_number.page';
+import Page from 'modules/quran/surah.page';
 
-export default page;
+export default Page;

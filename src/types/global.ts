@@ -21,9 +21,10 @@ export type WithParams<T extends string = string> = {
   params: Record<T, string>;
 };
 
-export type NextLayoutProps<T extends string | null = null> = T extends string
-  ? Readonly<Record<'children' | T, Children>>
-  : Readonly<Record<'children', Children>>;
+export type NextLayoutProps<
+  T extends string | null = null,
+  V extends Record<string, any> = Record<string, any>
+> = T extends string ? Readonly<Record<T, Children> & V> : Readonly<WithChildren & V>;
 
 export interface NextPageProps<T extends string, S extends string = string> {
   params: Record<T, string>;

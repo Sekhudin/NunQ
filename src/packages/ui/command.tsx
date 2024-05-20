@@ -115,7 +115,7 @@ const CommandItem = React.forwardRef<
       `relative flex select-none items-center rounded-sm gap-2 px-2 py-1.5
       text-sm outline-none aria-selected:bg-primary/10 aria-selected:text-primary stroke-zinc-600 dark:stroke-zinc-400
       aria-selected:stroke-primary dark:aria-selected:stroke-primary dark:aria-selected:text-primary-foreground
-      data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 cursor-pointer`,
+      data-[disabled=true]:pointer-events-none data-[disabled=true]:opacity-50 duration-300 cursor-pointer`,
       className
     )}
     {...props}

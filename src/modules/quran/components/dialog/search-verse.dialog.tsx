@@ -2,7 +2,7 @@
 import React from 'react';
 import { Search } from 'lucide-react';
 import { IconButton } from 'components/HOCs/icon.hoc';
-import { Input, InputOnchange } from 'packages/ui/input';
+import { Input } from 'packages/ui/input';
 import { Button } from 'packages/ui/button';
 import { Dialog, DialogTrigger, DialogContent } from 'packages/ui/dialog';
 import { cn, Props } from 'packages/utils/cn';
@@ -59,8 +59,9 @@ const SearchVerseDialog = ({ className, maxVerse }: Props<{ maxVerse: number }>)
             placeholder="Cari ayat"
             onChange={(ev) => {
               setVerse(ev.target.value);
-              if (!inputRef.current) return;
-              inputRef.current.focus();
+              if (inputRef.current) {
+                inputRef.current.focus();
+              }
             }}
           />
         </div>

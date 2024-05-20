@@ -1,4 +1,5 @@
 'use client';
+import React from 'react';
 import { useRouter } from 'next/navigation';
 import { Search, AtSign, File, FileHeart } from 'lucide-react';
 import { DynamicIconMD, IconXS, IconSM } from 'components/HOCs/icon.hoc';
@@ -16,7 +17,7 @@ import { RatingOffIcon, RatingOnIcon, RemoveIcon } from 'packages/ui/icons';
 import { Dialog, DialogContent } from 'packages/ui/dialog';
 import { Separator } from 'packages/ui/separator';
 import { Button } from 'packages/ui/button';
-import { cn, Props } from 'packages/utils/cn';
+import { cn, Props, PropsFrom } from 'packages/utils/cn';
 import useMounted from 'packages/hooks/use-mounted';
 import useQuranSearchesStore from 'stores/quran-searches.store';
 import useSearchCommandStore from './search.command.store';
@@ -31,6 +32,12 @@ const SearchCommand = ({ className }: Props) => {
   const router = useRouter();
   const state = useSearchCommandStore((state) => state);
   const searchesStore = useQuranSearchesStore((store) => store);
+
+  const isWithSeparator = React.useMemo(() => {
+    return (
+      searchesStore.favorites.length > 0 || searchesStore.recents.length > 0 || state.surahMode
+    );
+  }, [searchesStore.favorites.length, searchesStore.recents.length, state.surahMode]);
 
   useMounted(() => {
     const keyDownHandler = (e: KeyboardEvent) => {
@@ -59,7 +66,7 @@ const SearchCommand = ({ className }: Props) => {
         <DialogContent
           className={cn(
             `top-[2dvh] lg:top-[8dvh] translate-y-0 max-w-[95dvw] lg:max-w-5xl
-            2xl:max-w-4xl bg-transparent p-0 md:p-0 shadow-none`
+            2xl:max-w-4xl bg-transparent p-0 md:p-0 shadow-none overflow-hidden`
           )}
           closeClassName="top-2 right-2">
           <Command label="My Command">
@@ -119,9 +126,7 @@ const SearchCommand = ({ className }: Props) => {
                 </CommandGroup>
               )}
 
-              {(searchesStore.favorites.length > 0 ||
-                searchesStore.recents.length > 0 ||
-                state.surahMode) && <Separator />}
+              {isWithSeparator && <Separator />}
 
               {state.links.length > 0 && (
                 <CommandGroup heading="Tautan">
@@ -135,7 +140,7 @@ const SearchCommand = ({ className }: Props) => {
                         onSelect={state.commandItemOnSelect((href) => {
                           router.push(href);
                         })}>
-                        <FileIcon className='stroke-inherit dark:stroke-inherit' />
+                        <FileIcon className="stroke-inherit dark:stroke-inherit" />
                         <span>{link.name}</span>
                       </CommandItem>
                     </NextLink>

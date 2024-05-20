@@ -4,7 +4,7 @@ import SwaggerUI from 'swagger-ui-react';
 import versionOne from './version-one';
 import React from 'react';
 
-const DocsPage = () => {
+const Page = () => {
   const loc = useLocationState();
 
   const specOne = React.useMemo(() => {
@@ -17,4 +17,4 @@ const DocsPage = () => {
     </main>
   );
 };
-export default DocsPage;
+export default Page;

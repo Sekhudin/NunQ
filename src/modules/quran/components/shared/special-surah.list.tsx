@@ -1,15 +1,17 @@
 'use client';
+import React from 'react';
 import { NextLinkButton } from 'packages/ui/next-link';
 import { cn, Props } from 'packages/utils/cn';
 import service from 'modules/quran/service/quran.service';
 import helper from 'modules/quran/service/helper.service';
 import useMediaQuery from 'packages/hooks/use-media-query';
-import React from 'react';
 
 const SpecialSurahList = ({ className }: Props) => {
   const isMd = useMediaQuery('(max-width: 768px)');
-  const sumSlice = React.useMemo(() => {
-    if (isMd) return 4;
+
+  const specialSurah = React.useMemo(() => {
+    if (isMd) return service.specialSurahList.slice(0, 4);
+    return service.specialSurahList;
   }, [isMd]);
 
   return (
@@ -19,7 +21,7 @@ const SpecialSurahList = ({ className }: Props) => {
         2xl:gap-x-8 gap-y-2 mb-8`,
         className
       )}>
-      {service.specialSurahList.slice(0, sumSlice).map((surah, key) => (
+      {specialSurah.map((surah, key) => (
         <li key={key}>
           <NextLinkButton
             className={cn(`px-2 sm:px-4 py-1 rounded-full duration-500 delay-100`)}

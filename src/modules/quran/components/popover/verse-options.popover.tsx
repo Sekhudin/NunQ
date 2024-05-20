@@ -40,19 +40,19 @@ const VerseOptionsPopover = ({
       <PopoverContent className={cn(``, className)} {...props}>
         <ul className={`grid grid-rows-4 gap-y-1`}>
           <li>
-            <ButtonPopoverItem>
+            <ButtonPopoverItem disabled>
               <PlayIcon />
               <span>Putar Ayat</span>
             </ButtonPopoverItem>
           </li>
           <li>
-            <ButtonPopoverItem>
+            <ButtonPopoverItem disabled>
               <BookmarkIcon />
               <span>Tandai Terakhir Baca</span>
             </ButtonPopoverItem>
           </li>
           <li>
-            <ButtonPopoverItem>
+            <ButtonPopoverItem disabled>
               <TafsirIcon />
               <span>Lihat Tafsir</span>
             </ButtonPopoverItem>
