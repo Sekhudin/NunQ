@@ -1,5 +1,5 @@
 import { NextImage } from 'packages/ui/next-image';
-import { cn, Props } from 'packages/utils/cn';
+import { cn, Props, WithParams } from 'packages/utils/cn';
 import type { SurahList } from 'packages/quran-pack/quran.types';
 import { BismillahPNG } from 'packages/public/png';
 import { arabicSpecial } from 'packages/font/arabic.font';

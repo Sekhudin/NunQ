@@ -1,3 +1,3 @@
-import Page from 'modules/quran/surah.page';
+import Page from 'modules/quran/components/shared/surah-content.section';
 
 export default Page;

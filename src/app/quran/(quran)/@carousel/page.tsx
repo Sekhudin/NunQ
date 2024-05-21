@@ -1,3 +1,3 @@
-import Carousel from 'modules/quran/components/carousel/quranic.carousel';
+import Page from "modules/quran/components/carousel/quranic.carousel"
 
-export default Carousel;
+export default Page;

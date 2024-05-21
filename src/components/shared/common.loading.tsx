@@ -1,12 +1,13 @@
-'use client';
+import { LoaderCircle } from 'lucide-react';
 
-const Loading = () => {
+const CommonLoading = () => {
   return (
     <div>
-      <span>Image</span>
-      <span>Common Loading</span>
+      <div className="flex items-center justify-center p-6">
+        <LoaderCircle className="stroke-primary animate-spin" />
+      </div>
     </div>
   );
 };
 
-export default Loading;
+export default CommonLoading;

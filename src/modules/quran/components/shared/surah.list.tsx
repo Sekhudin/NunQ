@@ -1,10 +1,11 @@
+import { Skeleton } from 'packages/ui/skeleton';
 import { NextLinkButton } from 'packages/ui/next-link';
 import { cn, Props } from 'packages/utils/cn';
 import { arabicSpecial } from 'packages/font/arabic.font';
 import service from 'modules/quran/service/quran.service';
 import helper from 'modules/quran/service/helper.service';
 
-const Page = ({ className }: Props) => {
+const SurahList = ({ className }: Props) => {
   return (
     <ul className={cn(`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4`, className)}>
       {service.surahList.map(({ name_trans_id, number_of_verse, ...surah }, key) => (
@@ -40,7 +41,15 @@ const Page = ({ className }: Props) => {
   );
 };
 
-export default Page;
+export const SurahListSkeleton = () => (
+  <div className={`grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4`}>
+    {Array.from({ length: 15 }).map((_, key) => (
+      <Skeleton className="h-24 rounded-xl" key={key} />
+    ))}
+  </div>
+);
+
+export default SurahList;
 
 // React.useEffect(() => {
 //   if (surahNumber === 114 && verse === surah.numberOfVerse) return;

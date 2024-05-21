@@ -1,3 +1,3 @@
-import SpecialSurah from "modules/quran/components/shared/special-surah.list"
+import Page from "modules/quran/components/shared/special-surah.list";
 
-export default SpecialSurah;
+export default Page;

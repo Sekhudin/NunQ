@@ -1,23 +1,27 @@
+import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
 import { mainContainerClass } from 'components/HOCs/container.hoc';
-import { cn } from 'packages/utils/cn';
-import type { PageParams, NextLayoutProps } from 'types/global';
+import type { NextLayoutProps, WithParams } from 'types/global';
 import SurahNavigation from 'modules/quran/components/navigation/surah.navigation';
-import SurahHeadSection from 'modules/quran/components/shared/surah-head.section';
-import service from 'modules/quran/service/quran.service';
+import SurahNavigationSkeleton from 'modules/quran/components/navigation/surah.navigation.skeleton';
+import { cn } from 'packages/utils/cn';
 
-const Layout = ({ children, params }: NextLayoutProps<null, PageParams<'surah_number'>>) => {
-  const info = service.findSurahByNumber(Number(params.surah_number));
-  if (!info) notFound();
+type ChildName = 'head' | 'children';
+const Layout = ({
+  children,
+  params,
+}: NextLayoutProps<ChildName> & WithParams<'surah_number'>) => {
+  if (!Number(params.surah_number)) notFound();
+  if (Number(params.surah_number) < 1) notFound();
+  if (Number(params.surah_number) > 114) notFound();
 
   return (
     <main className="">
-      <SurahNavigation value={info} />
+      <Suspense fallback={<SurahNavigationSkeleton />}>
+        <SurahNavigation params={params} />
+      </Suspense>
       <div className="">
-        <div className={`${mainContainerClass} px-0 pt-8`}>
-          <SurahHeadSection value={info} />
-          {children}
-        </div>
+        <div className={cn(mainContainerClass, `px-0 pt-8`)}>{children}</div>
       </div>
     </main>
   );

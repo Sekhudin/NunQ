@@ -1,5 +1,6 @@
 'use client';
 import * as React from 'react';
+import { Skeleton } from 'packages/ui/skeleton';
 import { containerClass } from 'components/HOCs/container.hoc';
 import { Carousel, CarouselContent, CarouselItem, CarouselApi } from 'packages/ui/carousel';
 import { Autoplay, AutoplayOptions } from 'packages/ui/carousel-plugin';
@@ -75,5 +76,11 @@ const QuranicCarousel = ({ className }: Props) => {
     </section>
   );
 };
+
+export const QuranicCarouselSkeleton = () => (
+  <div className={cn(containerClass, `pt-6 md:pt-8`)}>
+    <Skeleton className="h-44 w-full rounded-xl" />
+  </div>
+);
 
 export default QuranicCarousel;

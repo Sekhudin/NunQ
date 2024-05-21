@@ -1,15 +1,14 @@
 import { NextLayoutProps } from 'types/global';
 import { mainContainerClass } from 'components/HOCs/container.hoc';
 import { cn } from 'packages/utils/cn';
-import QuranNavigation from 'modules/quran/components/navigation/quran.navigation';
 
-type ChildName = 'carousel' | 'special_surah' | 'surah_list';
-const Layout = ({ carousel, special_surah, children }: NextLayoutProps<ChildName>) => {
+type ChildName = 'carousel' | 'navigation' | 'special_surah' | 'children';
+const Page = ({ carousel, navigation, special_surah, children }: NextLayoutProps<ChildName>) => {
   return (
     <main>
       {carousel}
-      <QuranNavigation />
-      <div className={`${mainContainerClass} py-8`}>
+      {navigation}
+      <div className={cn(mainContainerClass, `py-8`)}>
         {special_surah}
         {children}
       </div>
@@ -17,4 +16,4 @@ const Layout = ({ carousel, special_surah, children }: NextLayoutProps<ChildName
   );
 };
 
-export default Layout;
+export default Page;

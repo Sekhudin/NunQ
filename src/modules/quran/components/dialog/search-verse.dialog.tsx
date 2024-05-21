@@ -1,5 +1,6 @@
 'use client';
 import React from 'react';
+import { useQueryState } from 'nuqs';
 import { Search } from 'lucide-react';
 import { IconButton } from 'components/HOCs/icon.hoc';
 import { Input } from 'packages/ui/input';
@@ -7,11 +8,10 @@ import { Button } from 'packages/ui/button';
 import { Dialog, DialogTrigger, DialogContent } from 'packages/ui/dialog';
 import { cn, Props } from 'packages/utils/cn';
 import useMounted from 'packages/hooks/use-mounted';
-import useLocationHashState from 'packages/hooks/use-location-hash-state';
 
 const SearchIcon = IconButton(Search, 'primary');
 const SearchVerseDialog = ({ className, maxVerse }: Props<{ maxVerse: number }>) => {
-  const [verse, setVerse] = useLocationHashState();
+  const [queryVerse, setQueryVerse] = useQueryState("ayat");
 
   const triggerRef = React.useRef<HTMLButtonElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
@@ -58,7 +58,7 @@ const SearchVerseDialog = ({ className, maxVerse }: Props<{ maxVerse: number }>)
             ref={inputRef}
             placeholder="Cari ayat"
             onChange={(ev) => {
-              setVerse(ev.target.value);
+              setQueryVerse(ev.target.value);
               if (inputRef.current) {
                 inputRef.current.focus();
               }

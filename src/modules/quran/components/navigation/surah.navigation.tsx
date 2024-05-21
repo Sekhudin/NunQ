@@ -5,7 +5,7 @@ import type { SurahList } from 'packages/quran-pack/quran.types';
 import { Separator } from 'packages/ui/separator';
 import { NextLinkButton } from 'packages/ui/next-link';
 import { Button } from 'packages/ui/button';
-import { cn, Props } from 'packages/utils/cn';
+import { cn, Props, WithParams } from 'packages/utils/cn';
 import SearchVerseDialog from 'modules/quran/components/dialog/search-verse.dialog';
 import SettingsPopover from 'modules/quran/components/popover/settings.popover';
 import service from 'modules/quran/service/quran.service';
@@ -15,7 +15,10 @@ const ArrowLeftIcon = DynamicIconButton(ArrowLeft, 'hoverPrimary');
 const SettingsIcon = DynamicIconButton(Settings, 'hoverPrimary');
 const ChevronRightIcon = IconButton(ChevronRight, 'primary');
 const ChevronLeftIcon = IconButton(ChevronLeft, 'primary');
-const SurahNavigation = ({ className, value }: Props<{ value: SurahList[number] }>) => {
+const SurahNavigation = ({ className, params }: Props<WithParams<'surah_number'>>) => {
+  const value = service.findSurahByNumber(Number(params.surah_number));
+  if (!value) return <>Not Found</>;
+  
   return (
     <nav className={cn(`bg_navigation sticky top-0 min-h-3 z-10`, className)}>
       <Separator />
