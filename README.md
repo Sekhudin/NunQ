@@ -12,17 +12,31 @@ Proyek aplikasi web ini menyediakan akses mudah dan nyaman ke Al-Qur'an serta be
 
 ## Tangkapan Layar
 
+Berikut adalah beberpa tangkapan layar dari aplikasi ini:
+
+#### Light Mode
+
+![Halaman Utama](public/shoot/quran.png)
+
+![Halaman Surah](public/shoot/surah.png)
+
+#### Dark Mode
+
+![Halaman Utama Dark](public/shoot/dark-quran.png)
+
+![Halaman Surah Dark](public/shoot/dark-surah.png)
+
 ## Fitur
 
-- **Mushaf Al-Qur'an** : Baca Al-Qur'an dengan teks Arab dan latin disertai terjemah. (<span style="color: green;"> ✔️ OK </span>)
-- **Pencarian Surah** : Cari surah Al-Qur'an berdasarkan nama surah atau kata kunci tertentu. (<span style="color: green;"> ✔️ OK </span>)
-- **Surah Terkini/Favorit** : Mengelompokan hasil pencarian surah berdasarkan pencarian terkini atau favorit. (<span style="color: green;"> ✔️ OK </span>)
-- **Pencarian Ayat** : Cari ayat Al-Qur'an berdasarkan nomor ayat. (<span style="color: green;"> ✔️ OK </span>)
-- **Tafsir Al-Qur'an** : Penjelasan ayat-ayat Al-Qur'an dari berbagai sumber tafsir terpercaya. (<span style="color: orange;"> 🚧 Comming Soon </span>)
-- **Doa Harian** : Kumpulan doa sehari-hari yang bisa dibaca dan dihafal. (<span style="color: red;"> 📅 Planned </span>)
-- **Yasin & Tahlil** : Bacaan Yasin dan Tahlil. (<span style="color: red;"> 📅 Planned </span>)
-- **Maulid** : Bacaan sholawat dari kitab maulid pilihan. (<span style="color: red;"> 📅 Planned </span>)
-- **Lain-lain** : Fitur lainya. (<span style="color: red;"> 📅 Planned </span>)
+- **Mushaf Al-Qur'an** : Baca Al-Qur'an dengan teks Arab dan latin disertai terjemah. (<span style="color: green;"> ✔️ **OK** </span>)
+- **Pencarian Surah** : Cari surah Al-Qur'an berdasarkan nama surah atau kata kunci tertentu. (<span style="color: green;"> ✔️ **OK** </span>)
+- **Surah Terkini/Favorit** : Mengelompokan hasil pencarian surah berdasarkan pencarian terkini atau favorit. (<span style="color: green;"> ✔️ **OK** </span>)
+- **Pencarian Ayat** : Cari ayat Al-Qur'an berdasarkan nomor ayat. (<span style="color: green;"> ✔️ **OK** </span>)
+- **Tafsir Al-Qur'an** : Penjelasan ayat-ayat Al-Qur'an dari berbagai sumber tafsir terpercaya. (<span style="color: orange;"> 🚧 **Comming Soon** </span>)
+- **Doa Harian** : Kumpulan doa sehari-hari yang bisa dibaca dan dihafal. (<span style="color: red;"> 📅 **Planned** </span>)
+- **Yasin & Tahlil** : Bacaan Yasin dan Tahlil. (<span style="color: red;"> 📅 **Planned** </span>)
+- **Maulid** : Bacaan sholawat dari kitab maulid pilihan. (<span style="color: red;"> 📅 **Planned** </span>)
+- **Lain-lain** : Fitur lainya. (<span style="color: red;"> 📅 **Planned** </span>)
 
 ## Persyaratan Sistem
 
@@ -85,3 +99,17 @@ NEXT_PUBLIC_APP_NAME=NunQ
 NEXT_PUBLIC_AUTHOR_EMAIL="sekhudinpbg3@gmail.com"
 NEXT_PUBLIC_AUTHOR_WEB_PROFILE="https://syaikhu.com"
 ```
+
+## Kontak
+
+Untuk pertanyaan atau dukungan, silakan hubungi:<br>
+
+- **Email** : sekhudinpbg3@gmail.com
+- **Web** : [syaikhu.com](https://www.syaikhu.com/)
+
+### Temukan saya di:
+
+- **Linkedin** : [sekhudin](https://www.linkedin.com/in/sekhudin/)<br>
+- **Instagram** : [@sekhudin_y](https://www.instagram.com/sekhudin_y)<br>
+- **Twitter** : [@sekhudin_y](https://twitter.com/sekhudin_y)<br>
+- **Trakteer** : [syaikhu](teer.id/syaikhu)
