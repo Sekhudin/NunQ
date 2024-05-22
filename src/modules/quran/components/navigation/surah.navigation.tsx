@@ -1,11 +1,11 @@
 import { ArrowLeft, Settings, ChevronRight, ChevronLeft } from 'lucide-react';
 import { DynamicIconButton, IconButton } from 'components/HOCs/icon.hoc';
 import { containerClass } from 'components/HOCs/container.hoc';
-import type { SurahList } from 'packages/quran-pack/quran.types';
 import { Separator } from 'packages/ui/separator';
 import { NextLinkButton } from 'packages/ui/next-link';
 import { Button } from 'packages/ui/button';
 import { cn, Props, WithParams } from 'packages/utils/cn';
+import { ROUTE } from 'configs/links.config';
 import SearchVerseDialog from 'modules/quran/components/dialog/search-verse.dialog';
 import SettingsPopover from 'modules/quran/components/popover/settings.popover';
 import service from 'modules/quran/service/quran.service';
@@ -32,7 +32,7 @@ const SurahNavigation = ({ className, params }: Props<WithParams<'surah_number'>
             className="items-center gap-x-2 group"
             variant="plain"
             size="none"
-            href={'/quran'}>
+            href={ROUTE.Quran}>
             <ArrowLeftIcon className="size-6" />
             <span className="hidden md:block">Daftar Surah</span>
           </NextLinkButton>

@@ -1,8 +1,9 @@
+import Layout from 'modules/docs/templates/main.template';
 import { withMetadata } from 'packages/utils/metadata';
-import Layout from 'modules/docs/docs.layout';
+import { PUBLIC_APP } from 'configs/env.config';
 
 export const metadata = withMetadata({
-  title: 'Nun - Dokumentasi API',
+  title: `${PUBLIC_APP.name} - Dokumentasi API`,
   description: 'Dokumentasi API untuk pengembang.',
 });
 

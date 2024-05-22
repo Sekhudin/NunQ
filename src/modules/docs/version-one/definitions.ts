@@ -15,11 +15,9 @@ const baseDefinitions = new Docs()
       },
       data: {
         type: 'object',
-        example: `{
-          ...,
-          "name": "john doe"
-          ,...
-        }`,
+        example: {
+          name: 'john doe',
+        },
       },
       errors: {
         type: 'null',
@@ -47,7 +45,7 @@ const baseDefinitions = new Docs()
         items: {
           type: 'string',
         },
-        example: `["Internal Server Error"]`,
+        example: ['Internal Server Error'],
       },
     },
   })

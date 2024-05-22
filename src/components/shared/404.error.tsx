@@ -1,5 +1,6 @@
 import { SquirrelIcon } from 'lucide-react';
 import { NextLinkButton } from 'packages/ui/next-link';
+import { ROUTE } from 'configs/links.config';
 
 const NotFound = () => {
   return (
@@ -11,7 +12,7 @@ const NotFound = () => {
           <span>4</span>
         </span>
         <h3 className={`text-xl`}>Halaman Tidak Ditemukan</h3>
-        <NextLinkButton href="/">Kembali</NextLinkButton>
+        <NextLinkButton href={ROUTE.Home}>Kembali</NextLinkButton>
       </div>
     </div>
   );

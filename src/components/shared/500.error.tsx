@@ -3,6 +3,7 @@ import React from 'react';
 import { ShieldAlert } from 'lucide-react';
 import { NextLinkButton } from 'packages/ui/next-link';
 import { cn, Props } from 'packages/utils/cn';
+import { ROUTE } from 'configs/links.config';
 
 const InternalServerError = ({ className }: Props) => {
   React.useEffect(() => {}, []);
@@ -16,9 +17,7 @@ const InternalServerError = ({ className }: Props) => {
           <span>0</span>
         </span>
         <h3 className="text-xl">Terjadi Kesalahan</h3>
-        <NextLinkButton href="/" scroll>
-          Kembali
-        </NextLinkButton>
+        <NextLinkButton href={ROUTE.Home}>Kembali</NextLinkButton>
       </div>
     </div>
   );

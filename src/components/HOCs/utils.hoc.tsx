@@ -2,22 +2,6 @@ import { Fragment } from 'react';
 import { NextImage, NextImageAlt, NextImageSrc } from 'packages/ui/next-image';
 import { cn, Children, PropsFrom, JSXComponent } from 'packages/utils/cn';
 
-const Child = (children: Children) => {
-  const Content = () => <>{children}</>;
-  return Content;
-};
-
-const Childs = (...childrens: Children[]) => {
-  const Content = () => (
-    <>
-      {childrens.map((children, key) => (
-        <Fragment key={key}>{children}</Fragment>
-      ))}
-    </>
-  );
-  return Content;
-};
-
 const ImageHOC = ({
   className: baseClassName,
   ...defaultProps
@@ -36,4 +20,4 @@ const ImageHOC = ({
   return HOC;
 };
 
-export { Child, Childs, ImageHOC };
+export { ImageHOC };

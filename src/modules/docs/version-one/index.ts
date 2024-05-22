@@ -1,21 +1,21 @@
 import Docs, { noEnter } from 'packages/swagger';
-import quranDocs from 'modules/quran/api/docs';
-import { PUBLIC_AUTHOR, PUBLIC_APP } from 'configs/env.config';
+import quranApi from 'modules/quran/api/docs';
+import docsApi from 'modules/docs/api/docs';
+import { PUBLIC_AUTHOR } from 'configs/env.config';
+import { API } from 'configs/links.config';
 import definitions from './definitions';
 
 const docs = new Docs()
-  .basePath('/api')
+  .basePath(API.Base)
   .schemes('http', 'https')
   .info({
     version: '1.0',
-    title: `${PUBLIC_APP.name} - Dokumentasi API`,
+    title: `Dokumentasi API`,
     description: noEnter(
-      `API ini merupakan API aplikasi muslim yang menyediakan berbagai fitur dan konten Islami.
-      Dengan API ini, pengguna dapat mengakses Al-Qur'an lengkap dengan terjemahan,
-      kumpulan artikel Islami yang informatif, doa-doa harian untuk berbagai kebutuhan,
-      serta tahlil untuk keperluan ibadah. API ini dirancang untuk memudahkan integrasi konten
-      Islami ke dalam aplikasi Anda, memberikan akses yang cepat dan mudah ke sumber-sumber yang
-      berharga bagi komunitas Muslim.`
+      `Hai, selamat datang! Saat ini, kami menyediakan akses ke Quran, 
+      jadi kamu bisa membaca dan mencari ayat-ayat suci dengan mudah. Ke depannya, 
+      kami akan menambahkan artikel Islami, doa harian, dan banyak lagi. 
+      Stay tuned untuk fitur-fitur keren lainnya!`
     ),
   })
   .contact({
@@ -23,8 +23,8 @@ const docs = new Docs()
     email: PUBLIC_AUTHOR.email,
     url: PUBLIC_AUTHOR.webProfile,
   })
-  .tags([...quranDocs.tags])
-  .paths({ ...quranDocs.paths })
-  .definitions({ ...definitions, ...quranDocs.definitions });
+  .tags([...quranApi.tags, ...docsApi.tags])
+  .paths({ ...quranApi.paths, ...docsApi.paths })
+  .definitions({ ...definitions, ...quranApi.definitions, ...docsApi.definitions });
 
 export default docs;

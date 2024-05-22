@@ -4,7 +4,7 @@ import { ArrowUpToLine } from 'lucide-react';
 import { DynamicIconMD } from 'components/HOCs/icon.hoc';
 import { Button } from 'packages/ui/button';
 import { cn, Props } from 'packages/utils/cn';
-import useMounted from 'packages/hooks/use-mounted';
+import useScrollListener, { MAX_SCROLL } from 'packages/hooks/use-scroll-listener';
 
 const ArrowUpToLineIcon = DynamicIconMD(ArrowUpToLine);
 const ScrollTopFloatButton = ({ className }: Props) => {
@@ -17,22 +17,14 @@ const ScrollTopFloatButton = ({ className }: Props) => {
     });
   }, []);
 
-  useMounted(() => {
-    const handler = () => {
-      if (!btnRef.current) return;
-      if (window.scrollY > 100) {
-        btnRef.current.style.display = 'flex';
-        return;
-      }
-      btnRef.current.style.display = 'none';
+  useScrollListener(({ scrollY }) => {
+    if (!btnRef.current) return;
+    if (scrollY > MAX_SCROLL.Y) {
+      btnRef.current.style.display = 'flex';
       return;
-    };
-
-    handler();
-    window.addEventListener('scroll', handler);
-    return () => {
-      window.removeEventListener('scroll', handler);
-    };
+    }
+    btnRef.current.style.display = 'none';
+    return;
   });
 
   return (

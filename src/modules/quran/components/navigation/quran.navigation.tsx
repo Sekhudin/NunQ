@@ -2,6 +2,7 @@ import { NavItem, NavIconItem } from 'components/HOCs/navigation-item.hoc';
 import { containerClass } from 'components/HOCs/container.hoc';
 import { QuranIconPNG, PrayingIconPNG, TasbihIconPNG, PoleIconPNG } from 'packages/public/png';
 import { cn, Props } from 'packages/utils/cn';
+import { ROUTE } from 'configs/links.config';
 import { Skeleton, SkeletonText } from 'packages/ui/skeleton';
 
 const AlQuranNavItem = NavItem(NavIconItem(QuranIconPNG, 'al-quran'), 'Al-Quran');
@@ -13,16 +14,16 @@ const QuranNavigation = ({ className }: Props) => {
     <nav className={cn(`bg_navigation sticky top-0`, className)}>
       <ul className={cn(`flex items-center justify-around pt-3 pb-2`, containerClass)}>
         <li>
-          <AlQuranNavItem href={'/quran'} />
+          <AlQuranNavItem href={ROUTE.Quran} />
         </li>
         <li>
-          <YasinTahlilNavItem href="/tahlil" disabled />
+          <YasinTahlilNavItem href={ROUTE.Tahlil} disabled />
         </li>
         <li>
-          <WiridDoaNavItem href="/doa" disabled />
+          <WiridDoaNavItem href={ROUTE.Wirid} disabled />
         </li>
         <li>
-          <MaulidNavItem href="/maulid" disabled />
+          <MaulidNavItem href={ROUTE.Mawlid} disabled />
         </li>
       </ul>
     </nav>
@@ -34,7 +35,7 @@ export const QuranNavigationSkeleton = () => (
     {Array.from({ length: 4 }).map((_, key) => (
       <div className="flex flex-col items-center gap-y-2" key={key}>
         <Skeleton className="size-12 rounded-full" />
-        <SkeletonText className='w-16' rounded={'lg'} size={'sm'} />
+        <SkeletonText className="w-16" rounded={'lg'} size={'sm'} />
       </div>
     ))}
   </div>

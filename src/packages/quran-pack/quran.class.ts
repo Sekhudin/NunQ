@@ -4,7 +4,7 @@ import Surah, { specialSurah, madaniyah, makkiyah } from './surah-extended.class
 import type { SurahNumber, SurahNameID } from './quran.types';
 
 class Quran {
-  static sumOfSurah = 114;
+  static sumOfSurah = QuranPack.surahList.length;;
 
   static bismillah = Alfatihah.arabics['1'];
 
@@ -21,7 +21,7 @@ class Quran {
   static surahMadaniyah = QuranPack.surahList.filter((surah) => surah.category === madaniyah);
 
   static withSurah = (name: string) => {
-    return 'سورة'.concat(' ',name.trim());
+    return 'سورة'.concat(' ', name.trim());
   };
 
   static init = (value: SurahNumber | SurahNameID) => {

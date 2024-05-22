@@ -8,11 +8,11 @@ import helper from 'modules/quran/service/helper.service';
 import useMediaQuery from 'packages/hooks/use-media-query';
 
 const SpecialSurahList = ({ className }: Props) => {
-  const isMd = useMediaQuery('(max-width: 768px)');
+  const isMd = useMediaQuery('(min-width: 768px)');
 
   const specialSurah = React.useMemo(() => {
-    if (isMd) return service.specialSurahList.slice(0, 4);
-    return service.specialSurahList;
+    if (isMd) return service.specialSurahList;
+    return service.specialSurahList.slice(0, 4);
   }, [isMd]);
 
   return (

@@ -3,6 +3,8 @@ import Quran from 'packages/quran-pack';
 class QuranService {
   public bismillah = Quran.bismillah;
 
+  public sumOfSurah = Quran.sumOfSurah;
+
   public surahList = Quran.surahList;
 
   public specialSurahList = Quran.specialSurahList;

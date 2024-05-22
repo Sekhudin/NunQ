@@ -15,6 +15,11 @@ export type ApiHandler<T extends string | null> = (
   extra: { params: T extends string ? Record<T, string> : undefined }
 ) => Promise<NextResponse<HttpResponse<Record<string, any> | null, string[] | null>>>;
 
+export type ApiHandlerPlain<T extends string | null> = (
+  req: Request,
+  extra: { params: T extends string ? Record<T, string> : undefined }
+) => Promise<NextResponse<Record<string, any>>>;
+
 export type CorsOptions = {
   allowedMethods: string[];
   allowedOrigins: string[];

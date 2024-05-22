@@ -1,4 +1,5 @@
 import Docs, { noEnter, code } from 'packages/swagger';
+import { API } from 'configs/links.config';
 import type Service from './quran.service';
 
 type SurahInfo = (typeof Service)['surahList'][number];
@@ -12,7 +13,7 @@ const docs = new Docs()
     name: 'Quran',
     description: 'Berisi Endpoint yang berhubungan dengan quran.',
   })
-  .get('/quran', {
+  .get(API.Quran, {
     tags: ['Quran'],
     schemes: ['http', 'https'],
     produces: ['application/json'],
@@ -34,7 +35,7 @@ const docs = new Docs()
       },
     },
   })
-  .get(`/quran/{surah_number}`, {
+  .get(API.Surah, {
     tags: ['Quran'],
     schemes: ['http', 'https'],
     produces: ['application/json'],
@@ -100,17 +101,17 @@ const docs = new Docs()
     properties: {
       number: {
         type: 'integer',
-        example: '1 (surah ke-1)',
+        example: 1,
         minimum: 1,
         maximum: 114,
       },
       number_of_verse: {
         type: 'integer',
-        example: `7 (jumlah ayat)`,
+        example: 7,
       },
       name: {
         type: 'string',
-        example: `الفاتحة (arabic)`,
+        example: `الفاتحة`,
       },
       name_id: {
         type: 'string',
@@ -166,17 +167,17 @@ const docs = new Docs()
     properties: {
       number: {
         type: 'integer',
-        example: '1 (surah ke-1)',
+        example: 1,
         minimum: 1,
         maximum: 114,
       },
       number_of_verse: {
         type: 'integer',
-        example: `7 (jumlah ayat)`,
+        example: 7,
       },
       name: {
         type: 'string',
-        example: `الفاتحة (arabic)`,
+        example: `الفاتحة`,
       },
       name_id: {
         type: 'string',

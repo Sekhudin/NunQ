@@ -33,8 +33,11 @@ const VerseContent = ({
   value,
   settings,
 }: Props<{ verse: number; value: SurahVerse; settings: QuranSettings.State }>) => {
-  const versePerWords = value.arabic.split(' ');
-  const isLastIndex = (index: number) => index === versePerWords.length - 1;
+  const versePerWords = React.useMemo(() => value.arabic.split(' '), [value.arabic]);
+  const isLastIndex = React.useCallback(
+    (index: number) => index === versePerWords.length - 1,
+    [versePerWords.length]
+  );
 
   return (
     <div className={cn(`flex gap-x-4 md:gap-x-6`, className)}>
@@ -52,12 +55,10 @@ const VerseContent = ({
             `flex flex-wrap flex-row-reverse justify-start items-center gap-x-1 gap-y-8
             font-bold`
           )}
-          style={
-            {
-              fontSize: `${settings.arabicFont.size}px`,
-              ...settings.arabicFont.family.style,
-            }
-          }>
+          style={{
+            fontSize: `${settings.arabicFont.size}px`,
+            ...settings.arabicFont.family.style,
+          }}>
           {versePerWords.map((arabic, key) => {
             if (!isLastIndex(key)) {
               return (

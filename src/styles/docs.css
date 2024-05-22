@@ -107,6 +107,10 @@
   @apply bg-background dark:bg-zinc-800 mb-4 rounded-xl overflow-hidden;
 }
 
+.swagger-ui .opblock-tag-section a {
+  @apply text-blue-600 dark:text-blue-600 font-normal;
+}
+
 .swagger-ui .opblock-tag-section .no-margin {
   @apply relative px-4 overflow-x-scroll md:overflow-x-hidden;
 }

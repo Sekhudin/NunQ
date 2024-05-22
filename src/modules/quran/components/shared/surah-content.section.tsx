@@ -2,7 +2,7 @@
 import React from 'react';
 import { useQueryState } from 'nuqs';
 import { toast } from 'sonner';
-import CommonLoader from 'components/shared/common.loader';
+import CommonLoader, { PageLoader } from 'components/shared/common.loader';
 import { Separator } from 'packages/ui/separator';
 import { cn, Props, WithParams } from 'packages/utils/cn';
 import useIntersectionObserver from 'packages/hooks/use-intersection-observer';
@@ -17,7 +17,7 @@ import HeadSurahSectionSkeleton from './surah-head.section.skeleton';
 const VerseMemoContent = React.memo(VerseContent);
 const SurahContentSection = ({ className, params }: Props<WithParams<'surah_number'>>) => {
   const [queryVerse, setQueryVerse] = useQueryState('ayat');
-  const [slices, setSlices] = React.useState<number>(10);
+  const [slices, setSlices] = React.useState<number>(20);
   const refEntry = React.useRef<HTMLDivElement>(null);
   const mutationRef = React.useRef<HTMLDivElement>(null);
   const entry = useIntersectionObserver(refEntry);
@@ -34,7 +34,7 @@ const SurahContentSection = ({ className, params }: Props<WithParams<'surah_numb
     // new slice when intersecting
     if (entry && entry.isIntersecting) {
       if (slices < surah.numberOfVerse) {
-        setSlices(slices + 10);
+        setSlices(slices + 20);
         return;
       }
     }
@@ -92,31 +92,37 @@ const SurahContentSection = ({ className, params }: Props<WithParams<'surah_numb
   });
 
   return (
-    <div ref={mutationRef}>
-      <React.Suspense fallback={<HeadSurahSectionSkeleton />}>
-        <HeadSurahSection value={surah.info()} />
-      </React.Suspense>
-      {verseNumbers.map((verse, key) => (
-        <section
-          className={cn(`relative`, queryVerse === String(verse) ? 'bg-primary/10' : '', className)}
-          key={key}>
-          <div className="absolute w-2 h-[15vh] -top-[15vh] right-0" id={`${verse}`} />
-          <VerseMemoContent
-            className="px-6 py-16"
-            verse={verse}
-            value={surah.getVerse(verse)}
-            settings={settingsStore}
-          />
-          <Separator />
-        </section>
-      ))}
+    <>
+      <div ref={mutationRef}>
+        <React.Suspense fallback={<HeadSurahSectionSkeleton />}>
+          <HeadSurahSection value={surah.info()} />
+        </React.Suspense>
+        {verseNumbers.map((verse, key) => (
+          <section
+            className={cn(
+              `relative`,
+              queryVerse === String(verse) ? 'bg-primary/10' : '',
+              className
+            )}
+            key={key}>
+            <div className="absolute w-2 h-[15vh] -top-[15vh] right-0" id={`${verse}`} />
+            <VerseMemoContent
+              className="px-6 py-16"
+              verse={verse}
+              value={surah.getVerse(verse)}
+              settings={settingsStore}
+            />
+            <Separator />
+          </section>
+        ))}
 
-      {verseNumbers.length < surah.numberOfVerse && (
-        <div ref={refEntry} className="relative flex justify-center">
-          <CommonLoader className="absolute -top-10" />
-        </div>
-      )}
-    </div>
+        {verseNumbers.length < surah.numberOfVerse && (
+          <div className="relative flex justify-center">
+            <CommonLoader className="absolute -top-10" ref={refEntry} />
+          </div>
+        )}
+      </div>
+    </>
   );
 };
 

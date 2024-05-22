@@ -7,7 +7,7 @@ const variant = cva('fixed size-fit z-50', {
       left: 'left-[5%]',
     },
     positionY: {
-      top: 'top-[5%]',
+      top: 'top-[15%]',
       bottom: 'bottom-[5%]',
     },
   },

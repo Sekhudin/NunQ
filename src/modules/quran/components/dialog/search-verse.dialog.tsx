@@ -7,31 +7,23 @@ import { Input } from 'packages/ui/input';
 import { Button } from 'packages/ui/button';
 import { Dialog, DialogTrigger, DialogContent } from 'packages/ui/dialog';
 import { cn, Props } from 'packages/utils/cn';
-import useMounted from 'packages/hooks/use-mounted';
+import useScrollListener, { MAX_SCROLL } from 'packages/hooks/use-scroll-listener';
 
 const SearchIcon = IconButton(Search, 'primary');
 const SearchVerseDialog = ({ className, maxVerse }: Props<{ maxVerse: number }>) => {
-  const [queryVerse, setQueryVerse] = useQueryState("ayat");
+  const [queryVerse, setQueryVerse] = useQueryState('ayat');
 
   const triggerRef = React.useRef<HTMLButtonElement>(null);
   const inputRef = React.useRef<HTMLInputElement>(null);
 
-  useMounted(() => {
-    const handler = () => {
-      if (!triggerRef.current) return;
-      if (window.scrollY > 90) {
-        triggerRef.current.style.display = 'flex';
-        return;
-      }
-      triggerRef.current.style.display = 'none';
+  useScrollListener(({ scrollY }) => {
+    if (!triggerRef.current) return;
+    if (scrollY > MAX_SCROLL.Y) {
+      triggerRef.current.style.display = 'flex';
       return;
-    };
-
-    handler();
-    window.addEventListener('scroll', handler);
-    return () => {
-      window.removeEventListener('scroll', handler);
-    };
+    }
+    triggerRef.current.style.display = 'none';
+    return;
   });
 
   return (

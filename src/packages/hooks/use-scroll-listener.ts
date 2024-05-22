@@ -42,4 +42,8 @@ function useScrollListener<T extends Element>(
   });
 }
 
+export enum MAX_SCROLL {
+  Y = 100,
+}
+
 export default useScrollListener;

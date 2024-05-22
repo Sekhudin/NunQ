@@ -1,7 +1,7 @@
 'use client';
 import React from 'react';
 import { useRouter } from 'next/navigation';
-import { Search, AtSign, File, FileHeart } from 'lucide-react';
+import { Search, AtSign, File, FileHeart, Command as CommandLucide } from 'lucide-react';
 import { DynamicIconMD, IconXS, IconSM } from 'components/HOCs/icon.hoc';
 import {
   Command,
@@ -17,7 +17,7 @@ import { RatingOffIcon, RatingOnIcon, RemoveIcon } from 'packages/ui/icons';
 import { Dialog, DialogContent } from 'packages/ui/dialog';
 import { Separator } from 'packages/ui/separator';
 import { Button } from 'packages/ui/button';
-import { cn, Props, PropsFrom } from 'packages/utils/cn';
+import { cn, Props } from 'packages/utils/cn';
 import useMounted from 'packages/hooks/use-mounted';
 import useQuranSearchesStore from 'stores/quran-searches.store';
 import useSearchCommandStore from './search.command.store';
@@ -54,10 +54,10 @@ const SearchCommand = ({ className }: Props) => {
   return (
     <>
       <Button
-        className={cn(`rounded-full group`, className)}
+        className={cn(`p-2 rounded-full group`, className)}
         variant="ghost2"
-        size="icon"
-        aria-label="toggle dark-theme"
+        size="none"
+        aria-label="search command"
         onClick={state.triggerCommandOnClick}>
         <SearchIcon />
       </Button>

@@ -1,6 +1,8 @@
+import { ROUTE } from 'configs/links.config';
+
 class Helper {
   static hrefSurah = (number: number) => {
-    return `/quran/${number}`;
+    return ROUTE.Surah.replace('{surah_number}', `${number}`);
   };
 
   static convertToArabicNumber(number: number): string {

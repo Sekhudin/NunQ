@@ -9,10 +9,7 @@ const SurahHeadSection = ({ className, value }: Props<{ value: SurahList[number]
   return (
     <section className={cn(`flex flex-col items-center py-12`, className)}>
       <span
-        className={cn(
-          `text-3xl text-zinc-600 dark:text-zinc-300 font-medium select-none
-          tracking-[-0.08em]`
-        )}
+        className={cn(`text-3xl text-zinc-600 dark:text-zinc-300 font-medium select-none`)}
         style={{ ...arabicSpecial['surah name'].style }}>
         {service.withSurah(value.name)}
       </span>

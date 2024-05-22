@@ -1,3 +1,3 @@
-import NotFound from 'components/shared/500.error';
+import NotFound from 'components/shared/404.error';
 
 export default NotFound;

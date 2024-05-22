@@ -10,4 +10,10 @@ const CommonLoading = () => {
   );
 };
 
+export const RootLoading = () => (
+  <div className="min-h-dvh flex justify-center items-center">
+    <CommonLoading />
+  </div>
+);
+
 export default CommonLoading;

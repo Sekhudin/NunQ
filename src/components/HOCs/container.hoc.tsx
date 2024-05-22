@@ -1,6 +1,5 @@
 import React from 'react';
 import { cn, JSXComponent } from 'packages/utils/cn';
-export { Childs } from './utils.hoc';
 
 const ContainerHOC = (baseClassName: string) => {
   const HOC = (Content: JSXComponent) => {

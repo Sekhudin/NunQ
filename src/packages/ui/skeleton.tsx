@@ -59,15 +59,22 @@ function SkeletonParagraph({
   className,
   diffLast,
   childClassName,
+  lastClassName,
   n,
   ...props
-}: Props<SkeletonVariant & { n: number; childClassName?: string; diffLast?: boolean }>) {
+}: Props<
+  SkeletonVariant & { n: number; diffLast?: boolean } & Partial<
+      Record<'childClassName' | 'lastClassName', string>
+    >
+>) {
   return (
     <div className={cn('flex flex-col gap-y-2', className)}>
       {Array.from({ length: n }).map((_, key) => (
         <SkeletonText className={cn('w-full', childClassName)} key={key} {...props} />
       ))}
-      {diffLast && <SkeletonText className={cn('w-[40%]', childClassName)} {...props} />}
+      {diffLast && (
+        <SkeletonText className={cn('w-[40%]', childClassName, lastClassName)} {...props} />
+      )}
     </div>
   );
 }

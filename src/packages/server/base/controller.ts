@@ -1,7 +1,7 @@
 import { NextResponse } from 'next/server';
 import HttpError from 'packages/server/base/http-error';
 import { Code, Message } from 'configs/response.config';
-import type { HttpResponse, ApiHandler } from 'types/api';
+import type { HttpResponse, ApiHandler, ApiHandlerPlain } from 'types/api';
 
 abstract class Controller {
   protected res = NextResponse;
@@ -21,6 +21,14 @@ abstract class Controller {
   ): NextResponse<HttpResponse<T, null>> {
     return this.res.json(data, {
       status: data.code,
+    });
+  }
+
+  protected sendPlain<T extends string | number | Record<string, any>>(
+    data: T
+  ): NextResponse<T> {
+    return this.res.json(data, {
+      status: Code.OK,
     });
   }
 
@@ -81,5 +89,5 @@ abstract class Controller {
   }
 }
 
-export type { ApiHandler };
+export type { ApiHandler, ApiHandlerPlain };
 export default Controller;
