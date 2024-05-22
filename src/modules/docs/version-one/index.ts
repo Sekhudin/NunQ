@@ -15,7 +15,7 @@ const docs = new Docs()
       `Hai, selamat datang! Saat ini, kami menyediakan akses ke Quran, 
       jadi kamu bisa membaca dan mencari ayat-ayat suci dengan mudah. Ke depannya, 
       kami akan menambahkan artikel Islami, doa harian, dan banyak lagi. 
-      Stay tuned untuk fitur-fitur keren lainnya!`
+      Stay tuned untuk fitur-fitur keren lainnya!.`
     ),
   })
   .contact({

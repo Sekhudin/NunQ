@@ -28,7 +28,7 @@ const docs = new Docs()
         },
       },
       error: {
-        description: 'Mengembalikan informasi error',
+        description: 'Mengembalikan informasi error.',
         schema: {
           $ref: '#/definitions/APIResponseError',
         },
@@ -80,7 +80,7 @@ const docs = new Docs()
         },
       },
       error: {
-        description: 'Mengembalikan informasi error',
+        description: 'Mengembalikan informasi error.',
         schema: {
           $ref: '#/definitions/APIResponseError',
         },

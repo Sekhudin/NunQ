@@ -12,7 +12,7 @@ const docs = new Docs()
     produces: ['application/json'],
     consumes: ['application/json'],
     description: noEnter(`Endpoint ini memungkinan pengguna untuk membaca dokumentasi secara online
-    menggunakan Dokumentasi UI yang mendukung format Swagger seperti
+    menggunakan Dokumentasi UI yang mendukung format OAS seperti
     [Swagger UI](https://petstore.swagger.io/) atau sejenisnya.`),
     responses: {
       '200': {
